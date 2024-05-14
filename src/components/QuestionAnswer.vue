@@ -7,7 +7,7 @@ defineProps<{title: string}>()
 type Question = {id: number, text:string; picture:string; answer:Answer}
 type Answer = {text:string; picture:string, an:number}
 
-let selectedQuestion: number
+let selectedQuestion: Ref<number | undefined> = ref()
 const answers: Ref<Answer[]> = ref([])
 let counter: number = 0;
 const answerField = ref('')
@@ -24,8 +24,8 @@ let questions: Question[] = [
   },
   {
     id: 1,
-    text: "Läufer II: Welche Positionen nehmen die Spieler ein?",
-    picture: "@/assets/Läufer1,5,6_Grundaufstellung.png",
+    text: "Läufer IV, Annahme: Welche Positionen nehmen die Spieler ein?",
+    picture: "@/assets/Läufer2,3,4_Grundaufstellung.png",
     answer: {
       text: "Richtig ist folgende Aufstellung:",
       picture: "@/assets/Läufer1_Annahme.png",
@@ -58,11 +58,11 @@ function checkAnswer(an: number, id: number): boolean {
   <ul class="questions">
     <li v-for="question in questions" :key="question.id">
       <button class="button" v-on:click="selectedQuestion=question.id">{{question.text}}</button>
-      <p>{{selectedQuestion}}</p>
     </li>
   </ul>
-  <div class="image" v-if="selectedQuestion">
-    <img alt="picture Question" class="picture" src="@/assets/Läufer1,5,6_Grundaufstellung.png"/>
+  <div class="image" v-if="selectedQuestion || selectedQuestion === 0">
+    <p>selected Question = {{selectedQuestion}}</p>
+    <img alt="picture Question" class="picture" v-bind:src="questions[selectedQuestion.valueOf()].picture" width="250" height="290"/>
   </div>
 </template>
 
