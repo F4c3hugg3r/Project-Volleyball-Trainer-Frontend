@@ -1,7 +1,6 @@
 <script setup lang="ts">
 
 import QuestionAnswer from '@/components/QuestionAnswer.vue'
-import TheWelcome from '@/components/TheWelcome.vue'
 </script>
 
 

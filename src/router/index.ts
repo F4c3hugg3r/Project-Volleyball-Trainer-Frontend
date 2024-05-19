@@ -1,8 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import Quiz from "@/views/QuizView.vue";
-import QuestionAnswer from '@/components/QuestionAnswer.vue'
-import TheWelcome from '@/components/TheWelcome.vue'
 import QuizView from '@/views/QuizView.vue'
 
 const router = createRouter({
