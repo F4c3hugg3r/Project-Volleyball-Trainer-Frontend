@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import HomeIntroduction from '@/components/HomeIntroduction.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <HomeIntroduction msg="Welcome to Volleyball Trainer" />
   </main>
 </template>

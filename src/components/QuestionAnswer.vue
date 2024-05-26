@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
-import {ref, type Ref} from 'vue';
+import { onMounted, ref, type Ref } from 'vue'
+import axios from 'axios'
 import imgLaeufer1_5_6 from '@/assets/Läufer1,5,6_Grundaufstellung.png'
 import imgLaeufer2_3_4 from '@/assets/Läufer2,3,4_Grundaufstellung.png'
 import imgLaeufer1_AA_An from '@/assets/Läufer1_Annahme.png'
@@ -10,7 +11,7 @@ defineProps<{title: string}>()
 //types
 type Question = {id: number, rotation: string; ablauf:string; position:string; pictures:string[]; answer:Answer}
 type Answer = {pictures: string[]; answers: any[]}
-type AnsweredQuestion = {id: number, attempts:number}
+type Stat = {id: number, rating:number; anzahl:number}
 type ModeSelection = {position: string, ablauf: string, rotation: string}
 
 const questions: Question[] = [
@@ -58,10 +59,10 @@ let quizEnd = false
 //paths
 let pathQuestionPic = import.meta.url;
 let pathAnswerPics: string[] = [import.meta.url];
+const url = "http://localhost8080"
 
 //logic
 let attempts: number = 0;
-let answeredQuestions: AnsweredQuestion[] = []
 let index = ref(0)
 
 //selected
@@ -102,7 +103,6 @@ function checkAnswer(an: number | undefined | string, id: number, currentPhase: 
 function showAnswerAndContinue() {
   answered.value = true;
   pathAnswerPics = [currentQuestions[index.value].answer.pictures[0], currentQuestions[index.value].answer.pictures[1]];
-  answeredQuestions.push({id: selectedQuestionId.value, attempts: attempts+1})
 }
 
 function nextQuestion() {
@@ -116,6 +116,7 @@ function nextQuestion() {
 
 function endQuiz() {
   //alles zurücksetzen & selection aktivieren
+  location.reload()
 }
 
 function defineQuestions() {
@@ -150,6 +151,18 @@ function startGame() {
   defineQuestions()
   selectedQuestionId.value = currentQuestions[index.value].id
   pathQuestionPic = currentQuestions[index.value].pictures[0]
+}
+
+function updateStats(id: number, attempts: number, anzahl:number) {
+  const stat = {
+    id:id,
+    rating: attempts > 6 ? 0 : (attempts > 4 ? 1 : (attempts > 2 ? 2 : 3)),
+    anzahl:anzahl
+  }
+
+  axios
+    .post<Stat>(`http://localhost:8080/stats`, stat)
+    .catch((error) => console.log(error))
 }
 
 </script>
@@ -225,21 +238,26 @@ function startGame() {
 
   <div class="answer" v-if="answered">
   <div class="answerPhase1">
-    <h2>Du startest hier.</h2>
+    <h2>Richtig! Du startest hier..</h2>
     <div class="image">
     <img :src="pathAnswerPics[0]" width="250" height="290" alt="picture"/>
       </div>
   </div>
   <div class="answerPhase2">
-    <h2>Und läufst dann zur {{currentQuestions[index].answer.answers[1]}} - Hier die Grundaufstellung!</h2>
+    <h2>..und läufst dann zur {{currentQuestions[index].answer.answers[1]}}.</h2>
+    <h2>Hier die Grundaufstellung:</h2>
     <div class="image">
     <img :src="pathAnswerPics[1]" width="250" height="290" alt="picture"/>
     </div>
   </div>
-    <h2 v-if="attempts<=3">Du hast nur {{answeredQuestions[index].attempts}} Versuche gebraucht, super!</h2>
-    <h2 v-if="attempts>=4">Schade, du hast {{answeredQuestions[index].attempts}} Versuche gebraucht, das geht besser!</h2>
-    <button class="submitNextButton" v-if="!quizEnd" @click="nextQuestion()">Next Question</button>
-    <button class="submitNextButton" v-if="quizEnd" @click="endQuiz()">End Quiz</button>
+    <h2 v-if="attempts===2">Du hast {{attempts}} Versuche gebraucht, besser geht's nicht!</h2>
+    <h2 v-if="attempts<5 && attempts>2">Du hast nur {{attempts}} Versuche gebraucht, super!</h2>
+    <h2 v-if="attempts<7 && attempts>4">Du hast {{attempts}} Versuche gebraucht, nicht schlecht!</h2>
+    <h2 v-if="attempts>6">Schade, du hast {{attempts}} Versuche gebraucht, das geht besser!</h2>
+    <button class="submitNextButton" v-if="!quizEnd" @click="
+    updateStats(selectedQuestionId, attempts, 1); nextQuestion()">Next Question</button>
+    <button class="submitNextButton" v-if="quizEnd" @click="
+    updateStats(selectedQuestionId, attempts, 1); endQuiz()">End Quiz</button>
   </div>
 
   <div class="debug">
@@ -247,17 +265,8 @@ function startGame() {
     <p>Phase: {{phase}}</p>
     <p>ID: {{selectedQuestionId}}</p>
     <p>Index: {{index}}</p>
-    <p>AnsweredQuestions: {{answeredQuestions}}</p>
   </div>
 
-  <!--<ul class="questions" v-if="ja">
-    <li v-for="question in currentQuestions" :key="question.id">
-      <button class="button" @click="
-      selectedQuestionId=question.id;
-      pathQuestionPic = question.pictures[0];
-       ">Läufer: {{question.id}}  Ablauf: {{question.ablauf}}</button>
-    </li>
-  </ul> -->
 </template>
 
 <style scoped>

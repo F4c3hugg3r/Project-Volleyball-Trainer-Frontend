@@ -8,19 +8,26 @@ defineProps<{
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
+      Click to start a
+      <a href="/quiz" target="_self">Quiz</a>
+      or to visit your
+      <a href="/profile" target="_self">Profile</a>.
     </h3>
   </div>
 </template>
 
 <style scoped>
+.greetings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}
+
 h1 {
-  font-weight: 500;
+  font-weight: 10;
   font-size: 2.6rem;
-  position: relative;
-  top: -10px;
 }
 
 h3 {
@@ -35,7 +42,7 @@ h3 {
 @media (min-width: 1024px) {
   .greetings h1,
   .greetings h3 {
-    text-align: left;
+    text-align: center;
   }
 }
 </style>
