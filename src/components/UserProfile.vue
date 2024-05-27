@@ -25,6 +25,9 @@ onMounted(() => requestStats())
 <template>
   <div>
     <h1>{{stats}}</h1>
+    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar" style="width: 35%"></div>
+    </div>
   </div>
 </template>
 
