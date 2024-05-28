@@ -7,14 +7,15 @@ import { onMounted, ref, type Ref } from 'vue'
 type Stat = {id: number, rating:number; anzahl:number}
 
 //paths
-const url = "http://localhost:8080"
+const url = import.meta.env.VITE_APP_BACKEND_BASE_URL
 
 //variables
 const stats: Ref<Stat[]> = ref([])
 
 function requestStats() {
+  console.log(url)
   axios
-    .get<Stat[]>(`http://localhost:8080/stats`)
+    .get<Stat[]>(`${url}/stats`)
     .then((response) => stats.value = response.data)
     .catch((error) => console.log(error))
 }

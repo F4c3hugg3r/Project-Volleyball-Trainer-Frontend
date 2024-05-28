@@ -59,7 +59,7 @@ let quizEnd = false
 //paths
 let pathQuestionPic = import.meta.url;
 let pathAnswerPics: string[] = [import.meta.url];
-const url = "http://localhost8080"
+const url = import.meta.env.VITE_APP_BACKEND_BASE_URL
 
 //logic
 let attempts: number = 0;
@@ -115,7 +115,6 @@ function nextQuestion() {
 }
 
 function endQuiz() {
-  //alles zurücksetzen & selection aktivieren
   location.reload()
 }
 
@@ -161,7 +160,7 @@ function updateStats(id: number, attempts: number, anzahl:number) {
   }
 
   axios
-    .post<Stat>(`http://localhost:8080/stats`, stat)
+    .post<Stat>(`${url}/stats`, stat)
     .catch((error) => console.log(error))
 }
 
