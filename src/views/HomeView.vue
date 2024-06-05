@@ -4,6 +4,6 @@ import HomeIntroduction from '@/components/HomeIntroduction.vue'
 
 <template>
   <main>
-    <HomeIntroduction msg="Welcome to Volleyball Trainer" />
+    <HomeIntroduction/>
   </main>
 </template>
