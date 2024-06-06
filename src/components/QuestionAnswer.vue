@@ -51,10 +51,10 @@ const questions: Question[] = [
 ]
 
 //visibility
-let submitVisible = ref(false)
-let selectionVisible = ref(true)
-let answered = ref(false)
-let quizEnd = false
+let submitVisible = ref(false) //default false
+let selectionVisible = ref(false) //default true
+let answered = ref(false) //default false
+let quizEnd = false //default false
 
 //paths
 let pathQuestionPic = import.meta.url;
@@ -167,10 +167,11 @@ function updateStats(id: number, attempts: number, anzahl:number) {
 </script>
 
 <template>
-  <div class="selection" v-if="selectionVisible===true">
-  <p>Wählen Sie die Spielmodi :)</p>
-  <div class="select">
-    <select v-model="selection.position">
+  <div class="container-fluid mt-5 p-0" v-if="selectionVisible===true">
+  <h1 class="display-3 text-center mb-5">Wähle die Spielmodi &#127952;</h1>
+  <div class="container shadow mt-3 p-4 bg-dark-subtle rounded-2">
+    <h6>Wähle die gewünschte Position</h6>
+    <select class="form-select" v-model="selection.position">
       <option disabled value="">Position</option>
       <option>Außenangreifer</option>
       <option>Mittelblocker</option>
@@ -179,25 +180,45 @@ function updateStats(id: number, attempts: number, anzahl:number) {
       <option>Libero</option>
     </select>
   </div>
-  <div class="select">
-    <select v-model="selection.ablauf">
+  <div class="container shadow mt-3 p-4 bg-dark-subtle rounded-2">
+    <h6>Wähle den gewünschten Ablauf</h6>
+    <select class="form-select" v-model="selection.ablauf">
       <option disabled value="">Ablauf</option>
       <option>Aufschlag</option>
       <option>Annahme</option>
       <option>Alles</option>
     </select>
   </div>
-  <div class="select">
-    <select v-model="selection.rotation">
+  <div class="container shadow mt-3 p-4 bg-dark-subtle rounded-2">
+    <h6>Wähle die gewünschte Reihenfolge</h6>
+    <select class="form-select" v-model="selection.rotation">
       <option disabled value="">Rotation</option>
       <option>Reihenfolge</option>
       <option>Gemischt</option>
     </select>
   </div>
-  <button class="startGameButton" v-if="checkSelection()" @click="startGame()">Start Game!</button>
+    <div class="container mt-5 text-center">
+      <div class="d-grid gap-2 col-6 mx-auto">
+  <button type="button" class="btn btn-outline-success shadow" v-if="checkSelection()"
+          @click="startGame()">Start Game!</button>
+      </div>
+  </div>
   </div>
 
-  <div class="quiz" v-if="!selectionVisible && !answered">
+  <div class="container-fluid mt-2 p-0" v-if="!selectionVisible && !answered">
+    <div class="d-flex justify-content-end align-items-start">
+    <button class="btn btn-secondary me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> Quick Stats</button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        ...
+      </div>
+    </div>
+    </div>
+    <div class="container">
       <h2 class="Ablauf">Spielphase: {{currentQuestions[index].rotation}}
         {{currentQuestions[index].ablauf}}</h2>
       <p class="questionText" v-if="phase===1">"Wo stehst du?"</p>
@@ -233,6 +254,7 @@ function updateStats(id: number, attempts: number, anzahl:number) {
         <p v-if="lastQuestion === true"> Gratuliere, das ist die richtige Antwort!</p>
         <p v-else-if="lastQuestion === false" > Schade, leider falsch. Überlege noch einmal! </p>
       </div>
+    </div>
   </div>
 
   <div class="answer" v-if="answered">
