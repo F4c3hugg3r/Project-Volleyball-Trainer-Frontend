@@ -52,7 +52,7 @@ const questions: Question[] = [
 
 //visibility
 let submitVisible = ref(false) //default false
-let selectionVisible = ref(false) //default true
+let selectionVisible = ref(true) //default true
 let answered = ref(false) //default false
 let quizEnd = false //default false
 
