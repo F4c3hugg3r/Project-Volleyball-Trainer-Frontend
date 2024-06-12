@@ -4,7 +4,8 @@ import axios from 'axios'
 import { onMounted, ref, type Ref } from 'vue'
 
 //datatypes
-type Stat = {id: number, rating:number; anzahl:number}
+type StatId = {questionId: number, rating:number}
+type Stat = {statId:StatId; anzahl:number}
 
 //paths
 const url = import.meta.env.VITE_APP_BACKEND_BASE_URL
@@ -13,10 +14,16 @@ const url = import.meta.env.VITE_APP_BACKEND_BASE_URL
 const stats: Ref<Stat[]> = ref([])
 
 function requestStats() {
-  console.log(url)
   axios
     .get<Stat[]>(`${url}/stats`)
     .then((response) => stats.value = response.data)
+    .catch((error) => console.log(error))
+}
+
+function deleteAllStats() {
+  axios
+    .delete<void>(`${url}/stats`)
+    .then(() => stats.value = [])
     .catch((error) => console.log(error))
 }
 
@@ -29,6 +36,7 @@ onMounted(() => requestStats())
     <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
       <div class="progress-bar" style="width: 35%"></div>
     </div>
+    <button type="button" class="btn btn-primary" @click="deleteAllStats">delete all Stats</button>
   </div>
 </template>
 
