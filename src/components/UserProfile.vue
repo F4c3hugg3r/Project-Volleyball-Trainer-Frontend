@@ -4,7 +4,7 @@ import axios from 'axios'
 import { onMounted, ref, type Ref } from 'vue'
 
 //datatypes
-type StatId = {id: number, rating:number}
+type StatId = {id: string, rating:string}
 type Stat = {statId:StatId; anzahl:number}
 
 //paths

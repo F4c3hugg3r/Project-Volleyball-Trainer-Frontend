@@ -11,7 +11,7 @@ defineProps<{title: string}>()
 //types
 type Question = {id: number, rotation: string; ablauf:string; position:string; pictures:string[]; answer:Answer}
 type Answer = {pictures: string[]; answers: any[]}
-type Stat = {id: number, rating:number; anzahl:number}
+type Stat = {id:string, rating:string; anzahl:number}
 type ModeSelection = {position: string, ablauf: string, rotation: string}
 
 const questions: Question[] = [
@@ -154,8 +154,8 @@ function startGame() {
 
 function updateStats(id: number, attempts: number, anzahl:number) {
   const stat = {
-    id:id,
-    rating: attempts > 6 ? 0 : (attempts > 4 ? 1 : (attempts > 2 ? 2 : 3)),
+    id: id.toString(),
+    rating: attempts > 6 ? "0" : (attempts > 4 ? "1" : (attempts > 2 ? "2" : "3")),
     anzahl:anzahl
   }
 
