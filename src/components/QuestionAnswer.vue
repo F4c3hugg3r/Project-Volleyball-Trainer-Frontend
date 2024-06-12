@@ -153,11 +153,14 @@ function startGame() {
   pathQuestionPic = currentQuestions[index.value].pictures[0]
 }
 
-function updateStats(id: number, attempts: number, anzahl:number) {
-  const stat = {
-    id: id.toString(),
+function updateStats(questionId: number, attempts: number, anzahl:number) {
+  const id:StatId = {
+    id: questionId.toString(),
     rating: attempts > 6 ? "0" : (attempts > 4 ? "1" : (attempts > 2 ? "2" : "3")),
-    anzahl:anzahl
+  }
+  const stat:Stat = {
+    id: id,
+    anzahl: anzahl
   }
 
   axios
