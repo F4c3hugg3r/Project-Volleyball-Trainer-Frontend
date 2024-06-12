@@ -11,7 +11,8 @@ defineProps<{title: string}>()
 //types
 type Question = {id: number, rotation: string; ablauf:string; position:string; pictures:string[]; answer:Answer}
 type Answer = {pictures: string[]; answers: any[]}
-type Stat = {id:string, rating:string; anzahl:number}
+type StatId = {id:string; rating:string}
+type Stat = {id:StatId; anzahl:number}
 type ModeSelection = {position: string, ablauf: string, rotation: string}
 
 const questions: Question[] = [
