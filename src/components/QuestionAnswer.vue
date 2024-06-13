@@ -40,6 +40,116 @@ const questions: Question[] = [
   },
   {
     id: 3,
+    rotation: "Läufer 2",
+    ablauf: "Aufschlag",
+    position: "Außenangreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 4,
+    rotation: "Läufer 2",
+    ablauf: "Annahme",
+    position: "Außenangreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 5,
+    rotation: "Läufer 3",
+    ablauf: "Aufschlag",
+    position: "Außenangreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 6,
+    rotation: "Läufer 3",
+    ablauf: "Annahme",
+    position: "Außenangreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 7,
+    rotation: "Läufer 4",
+    ablauf: "Aufschlag",
+    position: "Außenangreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 8,
+    rotation: "Läufer 4",
+    ablauf: "Annahme",
+    position: "Außenangreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 9,
+    rotation: "Läufer 5",
+    ablauf: "Aufschlag",
+    position: "Außenangreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 10,
+    rotation: "Läufer 5",
+    ablauf: "Annahme",
+    position: "Außenangreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 11,
+    rotation: "Läufer 6",
+    ablauf: "Aufschlag",
+    position: "Außenangreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 12,
+    rotation: "Läufer 6",
+    ablauf: "Annahme",
+    position: "Außenangreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 13,
     rotation: "Läufer 1",
     ablauf: "Aufschlag",
     position: "Mittelblocker",
@@ -48,7 +158,668 @@ const questions: Question[] = [
       pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
+  },
+  {
+    id: 14,
+    rotation: "Läufer 1",
+    ablauf: "Annahme",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer2_3_4, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 15,
+    rotation: "Läufer 2",
+    ablauf: "Aufschlag",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 16,
+    rotation: "Läufer 2",
+    ablauf: "Annahme",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 17,
+    rotation: "Läufer 3",
+    ablauf: "Aufschlag",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 18,
+    rotation: "Läufer 3",
+    ablauf: "Annahme",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 19,
+    rotation: "Läufer 4",
+    ablauf: "Aufschlag",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 20,
+    rotation: "Läufer 4",
+    ablauf: "Annahme",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 21,
+    rotation: "Läufer 5",
+    ablauf: "Aufschlag",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 22,
+    rotation: "Läufer 5",
+    ablauf: "Annahme",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 23,
+    rotation: "Läufer 6",
+    ablauf: "Aufschlag",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 24,
+    rotation: "Läufer 6",
+    ablauf: "Annahme",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 12,
+    rotation: "Läufer 6",
+    ablauf: "Annahme",
+    position: "Außenangreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 13,
+    rotation: "Läufer 1",
+    ablauf: "Aufschlag",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 14,
+    rotation: "Läufer 1",
+    ablauf: "Annahme",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer2_3_4, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 15,
+    rotation: "Läufer 2",
+    ablauf: "Aufschlag",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 16,
+    rotation: "Läufer 2",
+    ablauf: "Annahme",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 17,
+    rotation: "Läufer 3",
+    ablauf: "Aufschlag",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 18,
+    rotation: "Läufer 3",
+    ablauf: "Annahme",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 19,
+    rotation: "Läufer 4",
+    ablauf: "Aufschlag",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 20,
+    rotation: "Läufer 4",
+    ablauf: "Annahme",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 21,
+    rotation: "Läufer 5",
+    ablauf: "Aufschlag",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 22,
+    rotation: "Läufer 5",
+    ablauf: "Annahme",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 23,
+    rotation: "Läufer 6",
+    ablauf: "Aufschlag",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 24,
+    rotation: "Läufer 6",
+    ablauf: "Annahme",
+    position: "Mittelblocker",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 25,
+    rotation: "Läufer 1",
+    ablauf: "Aufschlag",
+    position: "Zuspieler",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 26,
+    rotation: "Läufer 1",
+    ablauf: "Annahme",
+    position: "Zuspieler",
+    pictures: [imgLaeufer2_3_4, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 27,
+    rotation: "Läufer 2",
+    ablauf: "Aufschlag",
+    position: "Zuspieler",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 28,
+    rotation: "Läufer 2",
+    ablauf: "Annahme",
+    position: "Zuspieler",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 29,
+    rotation: "Läufer 3",
+    ablauf: "Aufschlag",
+    position: "Zuspieler",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 30,
+    rotation: "Läufer 3",
+    ablauf: "Annahme",
+    position: "Zuspieler",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 31,
+    rotation: "Läufer 4",
+    ablauf: "Aufschlag",
+    position: "Zuspieler",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 32,
+    rotation: "Läufer 4",
+    ablauf: "Annahme",
+    position: "Zuspieler",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 33,
+    rotation: "Läufer 5",
+    ablauf: "Aufschlag",
+    position: "Zuspieler",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 34,
+    rotation: "Läufer 5",
+    ablauf: "Annahme",
+    position: "Zuspieler",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 35,
+    rotation: "Läufer 6",
+    ablauf: "Aufschlag",
+    position: "Zuspieler",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 36,
+    rotation: "Läufer 6",
+    ablauf: "Annahme",
+    position: "Zuspieler",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 37,
+    rotation: "Läufer 1",
+    ablauf: "Aufschlag",
+    position: "Diagonal-Angreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 38,
+    rotation: "Läufer 1",
+    ablauf: "Annahme",
+    position: "Diagonal-Angreifer",
+    pictures: [imgLaeufer2_3_4, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 39,
+    rotation: "Läufer 2",
+    ablauf: "Aufschlag",
+    position: "Diagonal-Angreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 40,
+    rotation: "Läufer 2",
+    ablauf: "Annahme",
+    position: "Diagonal-Angreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 41,
+    rotation: "Läufer 3",
+    ablauf: "Aufschlag",
+    position: "Diagonal-Angreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 42,
+    rotation: "Läufer 3",
+    ablauf: "Annahme",
+    position: "Diagonal-Angreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 43,
+    rotation: "Läufer 4",
+    ablauf: "Aufschlag",
+    position: "Diagonal-Angreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 44,
+    rotation: "Läufer 4",
+    ablauf: "Annahme",
+    position: "Diagonal-Angreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 45,
+    rotation: "Läufer 5",
+    ablauf: "Aufschlag",
+    position: "Diagonal-Angreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 46,
+    rotation: "Läufer 5",
+    ablauf: "Annahme",
+    position: "Diagonal-Angreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 47,
+    rotation: "Läufer 6",
+    ablauf: "Aufschlag",
+    position: "Diagonal-Angreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 48,
+    rotation: "Läufer 6",
+    ablauf: "Annahme",
+    position: "Diagonal-Angreifer",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 49,
+    rotation: "Läufer 1",
+    ablauf: "Aufschlag",
+    position: "Libero",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 50,
+    rotation: "Läufer 1",
+    ablauf: "Annahme",
+    position: "Libero",
+    pictures: [imgLaeufer2_3_4, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 51,
+    rotation: "Läufer 2",
+    ablauf: "Aufschlag",
+    position: "Libero",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 52,
+    rotation: "Läufer 2",
+    ablauf: "Annahme",
+    position: "Libero",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 53,
+    rotation: "Läufer 3",
+    ablauf: "Aufschlag",
+    position: "Libero",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 54,
+    rotation: "Läufer 3",
+    ablauf: "Annahme",
+    position: "Libero",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 55,
+    rotation: "Läufer 4",
+    ablauf: "Aufschlag",
+    position: "Libero",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 56,
+    rotation: "Läufer 4",
+    ablauf: "Annahme",
+    position: "Libero",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 57,
+    rotation: "Läufer 5",
+    ablauf: "Aufschlag",
+    position: "Libero",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 58,
+    rotation: "Läufer 5",
+    ablauf: "Annahme",
+    position: "Libero",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 59,
+    rotation: "Läufer 6",
+    ablauf: "Aufschlag",
+    position: "Libero",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 60,
+    rotation: "Läufer 6",
+    ablauf: "Annahme",
+    position: "Libero",
+    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    answer: {
+      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
   }
+
 ]
 
 //visibility
