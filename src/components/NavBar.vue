@@ -5,10 +5,9 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
-      <div class="container-fluid">
+    <nav class="d-flex justify-content-evenly navbar navbar-expand-sm bg-dark navbar-dark">
         <ul class="navbar-nav">
-          <li class="nav-item">
+          <li class="nav-item m-auto">
             <RouterLink class="nav-link" to="/">Home</RouterLink>
           </li>
           <li class="nav-item">
@@ -18,8 +17,8 @@ import { RouterLink, RouterView } from 'vue-router'
             <RouterLink class="nav-link" to="/profile">Profile</RouterLink>
           </li>
         </ul>
-      </div>
     </nav>
+
   </header>
   <RouterView></RouterView>
 </template>

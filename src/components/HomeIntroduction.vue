@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="shadow-lg m-5">
+  <div class="d-flex-column align-content-center flex-wrap pb-5 shadow-lg">
   <div class="container-fluid mt-5 p-3 text-center">
     <h1 class="display-1">Welcome to Volleyball Trainer!</h1>
   </div>
@@ -18,7 +18,21 @@
   </div>
   </div>
 
+  <div class="d-flex align-items-center justify-content-center mt-5">
+    <h1 class="volleyball-icon mt-5">&#127952;</h1>
+  </div>
 </template>
 
 <style scoped>
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.volleyball-icon {
+  font-size: 10rem; /* Größe nach Bedarf anpassen */
+}
 </style>

@@ -171,9 +171,9 @@ function updateStats(questionId: number, attempts: number, anzahl:number) {
 </script>
 
 <template>
-  <div class="container-fluid mt-5 p-0" v-if="selectionVisible===true">
-  <h1 class="display-3 text-center mb-5">Wähle die Spielmodi &#127952;</h1>
-  <div class="container shadow mt-3 p-4 bg-dark-subtle rounded-2">
+  <div class="container-fluid mt-4 p-0" v-if="selectionVisible===true">
+  <h1 class="display-3 text-center mb-4">Wähle die Spielmodi &#128039;</h1>
+  <div class="container shadow mt-4 p-4 bg-dark-subtle rounded-2">
     <h6>Wähle die gewünschte Position</h6>
     <select class="form-select" v-model="selection.position">
       <option disabled value="">Position</option>
@@ -184,7 +184,7 @@ function updateStats(questionId: number, attempts: number, anzahl:number) {
       <option>Libero</option>
     </select>
   </div>
-  <div class="container shadow mt-3 p-4 bg-dark-subtle rounded-2">
+  <div class="container shadow mt-4 p-4 bg-dark-subtle rounded-2">
     <h6>Wähle den gewünschten Ablauf</h6>
     <select class="form-select" v-model="selection.ablauf">
       <option disabled value="">Ablauf</option>
@@ -193,7 +193,7 @@ function updateStats(questionId: number, attempts: number, anzahl:number) {
       <option>Alles</option>
     </select>
   </div>
-  <div class="container shadow mt-3 p-4 bg-dark-subtle rounded-2">
+  <div class="container shadow mt-4 p-4 bg-dark-subtle rounded-2">
     <h6>Wähle die gewünschte Reihenfolge</h6>
     <select class="form-select" v-model="selection.rotation">
       <option disabled value="">Rotation</option>
@@ -209,57 +209,61 @@ function updateStats(questionId: number, attempts: number, anzahl:number) {
   </div>
   </div>
 
-  <div class="container-fluid mt-2 p-0" v-if="!selectionVisible && !answered">
-    <div class="d-flex justify-content-end align-items-start">
-    <button class="btn btn-secondary me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> Quick Stats</button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  <div class="container-lg mt-5" v-if="!selectionVisible && !answered">
+    <div class="card text-center shadow border-dark mx-2">
+      <div class="card-header bg-dark-subtle border-secondary">
+        <h5 v-if="phase===1">- Wo stehst du? -</h5>
+        <h5 v-if="phase===2">- Wohin läufst du? -</h5>
       </div>
-      <div class="offcanvas-body">
-        ...
+      <div class="card-body">
+        <h3 class="card-title">{{currentQuestions[index].rotation}} -
+          {{currentQuestions[index].ablauf}}</h3>
+          <div class="card-text" v-if="selectedQuestionId || selectedQuestionId === 0">
+            <img :src="pathQuestionPic" width="250" height="290" alt="picture"/>
+          </div>
+        <div class="selectAnswer" v-if="phase===1">
+          <select v-model="selectedOption" @change="submitVisible = true">
+            <option disabled value="">Please select your answer</option>
+            <option>A</option>
+            <option>B</option>
+            <option>D</option>
+            <option>E</option>
+            <option>F</option>
+            <option>G</option>
+          </select>
+        </div>
+        <div class="selectAnswer" v-if="phase===2">
+          <select v-model="selectedOption" @change="submitVisible = true">
+            <option disabled value="">Please select your answer</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+          </select>
+        </div>
+      </div>
+      <div class="card-footer text-body-secondary bg-dark-subtle border-secondary">
+          <button class="btn btn-outline-success shadow d-grid gap-2 col-6 mx-auto mb-3 mt-2" v-if="submitVisible" @click="checkAnswer(selectedOption, selectedQuestionId, phase)">submit</button>
+          <p v-if="lastQuestion === true"> Gratuliere, das ist die richtige Antwort!</p>
+          <p v-else-if="lastQuestion === false" > Schade, leider falsch. Überlege noch einmal! </p>
       </div>
     </div>
-    </div>
-    <div class="container">
-      <h2 class="Ablauf">Spielphase: {{currentQuestions[index].rotation}}
-        {{currentQuestions[index].ablauf}}</h2>
-      <p class="questionText" v-if="phase===1">"Wo stehst du?"</p>
-      <p class="questionText" v-if="phase===2">"Wohin läufst du?"</p>
-    <div class="image" v-if="selectedQuestionId || selectedQuestionId === 0">
-      <img :src="pathQuestionPic" width="250" height="290" alt="picture"/>
-    </div>
-      <div class="selectAnswer" v-if="phase===1">
-        <select v-model="selectedOption" @change="submitVisible = true">
-          <option disabled value="">Please select your answer</option>
-          <option>A</option>
-          <option>B</option>
-          <option>D</option>
-          <option>E</option>
-          <option>F</option>
-          <option>G</option>
-        </select>
-      </div>
-      <div class="selectAnswer" v-if="phase===2">
-        <select v-model="selectedOption" @change="submitVisible = true">
-          <option disabled value="">Please select your answer</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-        </select>
-      </div>
-
-      <div>
-        <button class="submitNextButton" v-if="submitVisible" @click="checkAnswer(selectedOption, selectedQuestionId, phase)">submit</button>
-        <p v-if="lastQuestion === true"> Gratuliere, das ist die richtige Antwort!</p>
-        <p v-else-if="lastQuestion === false" > Schade, leider falsch. Überlege noch einmal! </p>
+    <div class="d-flex justify-content-start align-items-start mt-4">
+      <button class="btn btn-secondary ms-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> Quick Stats</button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          ...
+        </div>
       </div>
     </div>
   </div>
+
 
   <div class="answer" v-if="answered">
   <div class="answerPhase1">
@@ -285,11 +289,12 @@ function updateStats(questionId: number, attempts: number, anzahl:number) {
     updateStats(selectedQuestionId, attempts, 1); endQuiz()">End Quiz</button>
   </div>
 
-  <div class="debug">
-    <p>Attempts {{ attempts }}</p>
-    <p>Phase: {{phase}}</p>
-    <p>ID: {{selectedQuestionId}}</p>
-    <p>Index: {{index}}</p>
+  <div class="list-group">
+    DEBUG:
+    Attempts={{ attempts }}
+    Phase={{phase}}
+    ID={{selectedQuestionId}}
+    Index={{index}}
   </div>
 
 </template>
