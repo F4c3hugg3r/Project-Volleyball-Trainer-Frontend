@@ -980,7 +980,7 @@ function updateStats(questionId: number, attempts: number, anzahl:number) {
   </div>
   </div>
 
-  <div class="container-lg mt-5" v-if="!selectionVisible && !answered">
+  <div class="container-xl mt-5" v-if="!selectionVisible && !answered">
     <div class="card text-center shadow border-dark mx-2">
       <div class="card-header bg-dark-subtle border-secondary">
         <h5 v-if="phase===1">- Wo stehst du? -</h5>
