@@ -11,7 +11,7 @@ defineProps<{title: string}>()
 //types
 type Question = {id: number, rotation: string; ablauf:string; position:string; pictures:string[]; answer:Answer}
 type Answer = {pictures: string[]; answers: any[]}
-type StatId = {id:string; rating:string}
+type StatId = {id:number; rating:number}
 type Stat = {id:StatId; anzahl:number}
 type ModeSelection = {position: string, ablauf: string, rotation: string}
 
@@ -748,8 +748,8 @@ function endQuiz() {
 }
 
 function defineQuestions() {
-  if(selection.value.ablauf == "Alles") {
-    currentQuestions = selection.value.rotation == "gemischt" ?
+  if(selection.value.ablauf === "Alles") {
+    currentQuestions = selection.value.rotation === "gemischt" ?
       questions
         .filter(q => q.position == selection.value.position)
         .sort(() => Math.random() - 0.5)
@@ -757,7 +757,7 @@ function defineQuestions() {
       .filter(q => q.position == selection.value.position)
   }
   else {
-    currentQuestions = selection.value.rotation == "gemischt" ?
+    currentQuestions = selection.value.rotation === "gemischt" ?
       questions
         .filter(q => q.position == selection.value.position
           && q.ablauf == selection.value.ablauf)
@@ -783,8 +783,8 @@ function startGame() {
 
 function updateStats(questionId: number, attempts: number, anzahl:number) {
   const id:StatId = {
-    id: questionId.toString(),
-    rating: attempts > 6 ? "0" : (attempts > 4 ? "1" : (attempts > 2 ? "2" : "3")),
+    id: questionId,
+    rating: attempts > 6 ? 1 : (attempts > 4 ? 2 : (attempts > 2 ? 3 : 4)),
   }
   const stat:Stat = {
     id: id,
