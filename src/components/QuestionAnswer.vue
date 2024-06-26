@@ -878,7 +878,7 @@ function updateStats(questionId: number, attempts: number, anzahl:number) {
           <p v-else-if="lastQuestion === false" > Schade, leider falsch. Überlege noch einmal! </p>
       </div>
     </div>
-    <div class="d-flex justify-content-start align-items-start mt-4">
+    <!-- <div class="d-flex justify-content-start align-items-start mt-4">
       <button class="btn btn-secondary ms-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> Quick Stats</button>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
@@ -889,7 +889,7 @@ function updateStats(questionId: number, attempts: number, anzahl:number) {
           ...
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 
