@@ -10,9 +10,9 @@ enum Position {
   none,
   Aussenangreifer,
   Mittelblocker,
-  Libero,
   Zuspieler,
-  Diagonalangreifer
+  Diagonalangreifer,
+  Libero
 }
 enum Ablauf {
   none,
@@ -25,7 +25,8 @@ enum Ablauf {
 const url = import.meta.env.VITE_APP_BACKEND_BASE_URL
 
 //variables
-const stats: Ref<Stat[]> = ref([])
+let stats: Ref<Stat[]> = ref([])
+let currentPos = ref(Position.none)
 
 function getStatPercentageByGamemode(position:Position, ablauf?:Ablauf, rating?:number):number {
   /* 1-12 Aussenangreifer, 13-24 Mittelblocker, 25-36 Zuspieler, 37-48 Diagonalangreifer, 49-60 Libero
@@ -82,21 +83,9 @@ function getStatPercentageByGamemode(position:Position, ablauf?:Ablauf, rating?:
   return Math.round(listFiltered.length/max*100)
 }
 
-function countStatsByStatId(statId: StatId):number {
-  return stats.value.filter(stat => stat.id === statId).length
-}
-
-function countStatsByQuestionId(questionId: number):number {
-  return stats.value.filter(stat => stat.id.id === questionId).length
-}
-
 function anzahlByQuestionId(questionId: number):number {
   const stat = stats.value.find(stat => stat.id.id === questionId);
   return stat ? stat.anzahl : 0;
-}
-
-function sortStats() {
-  stats.value.sort((a, b) => a.id.id - b.id.id);
 }
 
 function requestStats() {
@@ -113,9 +102,33 @@ function deleteAllStats() {
     .catch((error) => console.log(error))
 }
 
+function deleteStatsByPosition(positionEnum: Position) {
+  const position = positionEnum.valueOf()
+  axios
+    .delete<void>(`${url}/stats/${position}`)
+    .catch((error) => console.log(error))
+
+  switch(position) {
+    case Position.Aussenangreifer:
+      stats.value = stats.value.filter(stat => stat.id.id > 12)
+      break
+    case Position.Mittelblocker:
+      stats.value = stats.value.filter(stat => stat.id.id < 13 || stat.id.id > 24)
+      break
+    case Position.Zuspieler:
+      stats.value = stats.value.filter(stat => stat.id.id < 25 || stat.id.id > 36)
+      break
+    case Position.Diagonalangreifer:
+      stats.value = stats.value.filter(stat => stat.id.id < 37 || stat.id.id > 48)
+      break
+    case Position.Libero:
+      stats.value = stats.value.filter(stat => stat.id.id < 49)
+      break
+  }
+}
+
 onMounted(() => {
   requestStats()
-  sortStats()
 })
 </script>
 
@@ -130,7 +143,15 @@ onMounted(() => {
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <h5 class="text-center">Kompletter Fortschritt</h5>
+            <div class="row mb-2">
+              <div class="col-10">
+                <h5 class="text-center">Kompletter Fortschritt</h5>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-sm btn-outline-dark" @click="currentPos=Position.Aussenangreifer"
+                        data-bs-toggle="modal" data-bs-target="#deleteStatsByPosition">delete stats</button>
+              </div>
+              </div>
             <div class="progress" role="progressbar" style="height: 25px">
               <div class="progress-bar" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Aussenangreifer)) + '%' }">{{getStatPercentageByGamemode(Position.Aussenangreifer)+"%"}}</div>
             </div>
@@ -180,7 +201,15 @@ onMounted(() => {
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <h5 class="text-center">Kompletter Fortschritt</h5>
+            <div class="row mb-2">
+              <div class="col-10">
+                <h5 class="text-center">Kompletter Fortschritt</h5>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-sm btn-outline-dark" @click="currentPos=Position.Mittelblocker"
+                        data-bs-toggle="modal" data-bs-target="#deleteStatsByPosition">delete stats</button>
+              </div>
+            </div>
             <div class="progress" role="progressbar" style="height: 25px">
               <div class="progress-bar" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Mittelblocker)) + '%' }">{{getStatPercentageByGamemode(Position.Mittelblocker)+"%"}}</div>
             </div>
@@ -230,7 +259,15 @@ onMounted(() => {
         </h2>
         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <h5 class="text-center">Kompletter Fortschritt</h5>
+            <div class="row mb-2">
+              <div class="col-10">
+                <h5 class="text-center">Kompletter Fortschritt</h5>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-sm btn-outline-dark" @click="currentPos=Position.Zuspieler"
+                        data-bs-toggle="modal" data-bs-target="#deleteStatsByPosition">delete stats</button>
+              </div>
+            </div>
             <div class="progress" role="progressbar" style="height: 25px">
               <div class="progress-bar" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Zuspieler)) + '%' }">{{getStatPercentageByGamemode(Position.Zuspieler)+"%"}}</div>
             </div>
@@ -280,7 +317,15 @@ onMounted(() => {
         </h2>
         <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <h5 class="text-center">Kompletter Fortschritt</h5>
+            <div class="row mb-2">
+              <div class="col-10">
+                <h5 class="text-center">Kompletter Fortschritt</h5>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-sm btn-outline-dark" @click="currentPos=Position.Diagonalangreifer"
+                        data-bs-toggle="modal" data-bs-target="#deleteStatsByPosition">delete stats</button>
+              </div>
+            </div>
             <div class="progress" role="progressbar" style="height: 25px">
               <div class="progress-bar" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Diagonalangreifer)) + '%' }">{{getStatPercentageByGamemode(Position.Diagonalangreifer)+"%"}}</div>
             </div>
@@ -330,7 +375,15 @@ onMounted(() => {
         </h2>
         <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <h5 class="text-center">Kompletter Fortschritt</h5>
+            <div class="row mb-2">
+              <div class="col-10">
+                <h5 class="text-center">Kompletter Fortschritt</h5>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-sm btn-outline-dark" @click="currentPos=Position.Libero"
+                        data-bs-toggle="modal" data-bs-target="#deleteStatsByPosition">delete stats</button>
+              </div>
+            </div>
             <div class="progress" role="progressbar" style="height: 25px">
               <div class="progress-bar" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Libero)) + '%' }">{{getStatPercentageByGamemode(Position.Libero)+"%"}}</div>
             </div>
@@ -374,7 +427,7 @@ onMounted(() => {
       </div>
     </div>
       <div class="container-md mt-5">
-        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#deleteAllStats">delete all Stats</button>
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#deleteAllStats">delete all stats</button>
       </div>
       <div class="modal fade" id="deleteAllStats" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -389,6 +442,23 @@ onMounted(() => {
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button type="button" class="btn btn-danger" @click="deleteAllStats" >Delete All Stats</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="deleteStatsByPosition" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel"><strong>Do you really want to delete the stats for this section?</strong></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>There will be no way of getting them back</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger" @click="deleteStatsByPosition(currentPos)" >Delete Stats</button>
             </div>
           </div>
         </div>

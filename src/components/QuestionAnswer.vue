@@ -678,6 +678,7 @@ const questions: Question[] = [
   }
 
 ]
+const stats: Ref<Stat[]> = ref([])
 
 //visibility
 let submitVisible = ref(false) //default false
@@ -781,7 +782,7 @@ function startGame() {
   pathQuestionPic = currentQuestions[index.value].pictures[0]
 }
 
-function updateStats(questionId: number, attempts: number, anzahl:number) {
+function saveStat(questionId: number, attempts: number, anzahl:number) {
   const id:StatId = {
     id: questionId,
     rating: attempts > 6 ? 1 : (attempts > 4 ? 2 : (attempts > 2 ? 3 : 4)),
@@ -790,12 +791,32 @@ function updateStats(questionId: number, attempts: number, anzahl:number) {
     id: id,
     anzahl: anzahl
   }
+  stats.value.includes(stat) ? updateStat(stat) : createStat(stat)
+}
 
+function requestStats() {
+  axios
+    .get<Stat[]>(`${url}/stats`)
+    .then((response) => stats.value = response.data)
+    .catch((error) => console.log(error))
+}
+
+function createStat(stat:Stat) {
   axios
     .post<Stat>(`${url}/stats`, stat)
     .catch((error) => console.log(error))
 }
 
+function updateStat(stat:Stat) {
+  axios
+    .put<Stat>(`${url}/stats`, stat)
+    .then(requestStats)
+    .catch((error) => console.log(error))
+}
+
+onMounted(() => {
+  requestStats()
+})
 </script>
 
 <template>
@@ -892,7 +913,6 @@ function updateStats(questionId: number, attempts: number, anzahl:number) {
     </div>
   </div>
 
-
   <div class="answer" v-if="answered">
   <div class="answerPhase1">
     <h2>Richtig! Du startest hier..</h2>
@@ -912,9 +932,9 @@ function updateStats(questionId: number, attempts: number, anzahl:number) {
     <h2 v-if="attempts<7 && attempts>4">Du hast {{attempts}} Versuche gebraucht, nicht schlecht!</h2>
     <h2 v-if="attempts>6">Schade, du hast {{attempts}} Versuche gebraucht, das geht besser!</h2>
     <button class="submitNextButton" v-if="!quizEnd" @click="
-    updateStats(selectedQuestionId, attempts, 1); nextQuestion()">Next Question</button>
+    saveStat(selectedQuestionId, attempts, 1); nextQuestion()">Next Question</button>
     <button class="submitNextButton" v-if="quizEnd" @click="
-    updateStats(selectedQuestionId, attempts, 1); endQuiz()">End Quiz</button>
+    saveStat(selectedQuestionId, attempts, 1); endQuiz()">End Quiz</button>
   </div>
 
   <div class="list-group">
