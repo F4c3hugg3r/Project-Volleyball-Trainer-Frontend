@@ -4,7 +4,19 @@ import { onMounted, ref, type Ref } from 'vue'
 import axios from 'axios'
 import imgLaeufer1_5_6 from '@/assets/Läufer1,5,6_Grundaufstellung.png'
 import imgLaeufer2_3_4 from '@/assets/Läufer2,3,4_Grundaufstellung.png'
-import imgLaeufer1_AA_An from '@/assets/Läufer1_Annahme.png'
+import imgQ1Laeufer from '@/assets/q1laeufer.png'
+import imgQ2Laeufer from '@/assets/q2laeufer.png'
+import imgQ3Laeufer from '@/assets/q3laeufer.png'
+import imgQ4Laeufer from '@/assets/q4laeufer.png'
+import imgQ5Laeufer from '@/assets/q5laeufer.png'
+import imgQ6Laeufer from '@/assets/q6laeufer.png'
+import qgrundaufstellung from '@/assets/qgrundaufstellung.png'
+import imgl1 from '@/assets/Läufer1.png'
+import imgl2 from '@/assets/Läufer2.png'
+import imgl3 from '@/assets/Läufer3.png'
+import imgl4 from '@/assets/Läufer4.png'
+import imgl5 from '@/assets/Läufer5.png'
+import imgl6 from '@/assets/Läufer6.png'
 
 defineProps<{title: string}>()
 
@@ -21,9 +33,9 @@ const questions: Question[] = [
     rotation: "Läufer 1",
     ablauf: "Aufschlag",
     position: "Außenangreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgQ1Laeufer, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl1 , imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -32,9 +44,9 @@ const questions: Question[] = [
     rotation: "Läufer 1",
     ablauf: "Annahme",
     position: "Außenangreifer",
-    pictures: [imgLaeufer2_3_4, imgLaeufer1_AA_An],
+    pictures: [imgQ1Laeufer, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl1, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -43,9 +55,9 @@ const questions: Question[] = [
     rotation: "Läufer 2",
     ablauf: "Aufschlag",
     position: "Außenangreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgQ2Laeufer, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl2, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -54,9 +66,9 @@ const questions: Question[] = [
     rotation: "Läufer 2",
     ablauf: "Annahme",
     position: "Außenangreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgQ2Laeufer, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl2, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -65,9 +77,9 @@ const questions: Question[] = [
     rotation: "Läufer 3",
     ablauf: "Aufschlag",
     position: "Außenangreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgQ3Laeufer, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl3, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -76,9 +88,9 @@ const questions: Question[] = [
     rotation: "Läufer 3",
     ablauf: "Annahme",
     position: "Außenangreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgQ3Laeufer, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl3, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -87,9 +99,9 @@ const questions: Question[] = [
     rotation: "Läufer 4",
     ablauf: "Aufschlag",
     position: "Außenangreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgQ4Laeufer, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl4, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -98,9 +110,9 @@ const questions: Question[] = [
     rotation: "Läufer 4",
     ablauf: "Annahme",
     position: "Außenangreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgQ4Laeufer, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl4, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -109,9 +121,9 @@ const questions: Question[] = [
     rotation: "Läufer 5",
     ablauf: "Aufschlag",
     position: "Außenangreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgQ5Laeufer, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl5, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -120,9 +132,9 @@ const questions: Question[] = [
     rotation: "Läufer 5",
     ablauf: "Annahme",
     position: "Außenangreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgQ5Laeufer, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl5, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -131,9 +143,9 @@ const questions: Question[] = [
     rotation: "Läufer 6",
     ablauf: "Aufschlag",
     position: "Außenangreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgQ6Laeufer, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl6, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -142,9 +154,9 @@ const questions: Question[] = [
     rotation: "Läufer 6",
     ablauf: "Annahme",
     position: "Außenangreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgQ6Laeufer, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl6, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -153,9 +165,9 @@ const questions: Question[] = [
     rotation: "Läufer 1",
     ablauf: "Aufschlag",
     position: "Mittelblocker",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl1, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -164,9 +176,9 @@ const questions: Question[] = [
     rotation: "Läufer 1",
     ablauf: "Annahme",
     position: "Mittelblocker",
-    pictures: [imgLaeufer2_3_4, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer2_3_4, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl1, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -175,9 +187,9 @@ const questions: Question[] = [
     rotation: "Läufer 2",
     ablauf: "Aufschlag",
     position: "Mittelblocker",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl2, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -186,9 +198,9 @@ const questions: Question[] = [
     rotation: "Läufer 2",
     ablauf: "Annahme",
     position: "Mittelblocker",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl2, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -197,9 +209,9 @@ const questions: Question[] = [
     rotation: "Läufer 3",
     ablauf: "Aufschlag",
     position: "Mittelblocker",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl3, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -208,9 +220,9 @@ const questions: Question[] = [
     rotation: "Läufer 3",
     ablauf: "Annahme",
     position: "Mittelblocker",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl3, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -219,9 +231,9 @@ const questions: Question[] = [
     rotation: "Läufer 4",
     ablauf: "Aufschlag",
     position: "Mittelblocker",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl4, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -230,9 +242,9 @@ const questions: Question[] = [
     rotation: "Läufer 4",
     ablauf: "Annahme",
     position: "Mittelblocker",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl4, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -241,9 +253,9 @@ const questions: Question[] = [
     rotation: "Läufer 5",
     ablauf: "Aufschlag",
     position: "Mittelblocker",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl5, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -252,9 +264,9 @@ const questions: Question[] = [
     rotation: "Läufer 5",
     ablauf: "Annahme",
     position: "Mittelblocker",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl5, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -263,9 +275,9 @@ const questions: Question[] = [
     rotation: "Läufer 6",
     ablauf: "Aufschlag",
     position: "Mittelblocker",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl6, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -274,9 +286,9 @@ const questions: Question[] = [
     rotation: "Läufer 6",
     ablauf: "Annahme",
     position: "Mittelblocker",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl6, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -285,9 +297,9 @@ const questions: Question[] = [
     rotation: "Läufer 1",
     ablauf: "Aufschlag",
     position: "Zuspieler",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl1, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -296,9 +308,9 @@ const questions: Question[] = [
     rotation: "Läufer 1",
     ablauf: "Annahme",
     position: "Zuspieler",
-    pictures: [imgLaeufer2_3_4, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer2_3_4, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl1, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -307,9 +319,9 @@ const questions: Question[] = [
     rotation: "Läufer 2",
     ablauf: "Aufschlag",
     position: "Zuspieler",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl2, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -318,9 +330,9 @@ const questions: Question[] = [
     rotation: "Läufer 2",
     ablauf: "Annahme",
     position: "Zuspieler",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl2, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -329,9 +341,9 @@ const questions: Question[] = [
     rotation: "Läufer 3",
     ablauf: "Aufschlag",
     position: "Zuspieler",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl3, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -340,9 +352,9 @@ const questions: Question[] = [
     rotation: "Läufer 3",
     ablauf: "Annahme",
     position: "Zuspieler",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl3, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -351,9 +363,9 @@ const questions: Question[] = [
     rotation: "Läufer 4",
     ablauf: "Aufschlag",
     position: "Zuspieler",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl4, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -362,9 +374,9 @@ const questions: Question[] = [
     rotation: "Läufer 4",
     ablauf: "Annahme",
     position: "Zuspieler",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl4, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -373,9 +385,9 @@ const questions: Question[] = [
     rotation: "Läufer 5",
     ablauf: "Aufschlag",
     position: "Zuspieler",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl5, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -384,9 +396,9 @@ const questions: Question[] = [
     rotation: "Läufer 5",
     ablauf: "Annahme",
     position: "Zuspieler",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl5, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -395,9 +407,9 @@ const questions: Question[] = [
     rotation: "Läufer 6",
     ablauf: "Aufschlag",
     position: "Zuspieler",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl6, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -406,9 +418,9 @@ const questions: Question[] = [
     rotation: "Läufer 6",
     ablauf: "Annahme",
     position: "Zuspieler",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl6, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -417,9 +429,9 @@ const questions: Question[] = [
     rotation: "Läufer 1",
     ablauf: "Aufschlag",
     position: "Diagonal-Angreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl1, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -428,9 +440,9 @@ const questions: Question[] = [
     rotation: "Läufer 1",
     ablauf: "Annahme",
     position: "Diagonal-Angreifer",
-    pictures: [imgLaeufer2_3_4, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer2_3_4, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl1, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -439,9 +451,9 @@ const questions: Question[] = [
     rotation: "Läufer 2",
     ablauf: "Aufschlag",
     position: "Diagonal-Angreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl2, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -450,9 +462,9 @@ const questions: Question[] = [
     rotation: "Läufer 2",
     ablauf: "Annahme",
     position: "Diagonal-Angreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl2, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -461,9 +473,9 @@ const questions: Question[] = [
     rotation: "Läufer 3",
     ablauf: "Aufschlag",
     position: "Diagonal-Angreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl3, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -472,9 +484,9 @@ const questions: Question[] = [
     rotation: "Läufer 3",
     ablauf: "Annahme",
     position: "Diagonal-Angreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl3, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -483,9 +495,9 @@ const questions: Question[] = [
     rotation: "Läufer 4",
     ablauf: "Aufschlag",
     position: "Diagonal-Angreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl4, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -494,9 +506,9 @@ const questions: Question[] = [
     rotation: "Läufer 4",
     ablauf: "Annahme",
     position: "Diagonal-Angreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl4, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -505,9 +517,9 @@ const questions: Question[] = [
     rotation: "Läufer 5",
     ablauf: "Aufschlag",
     position: "Diagonal-Angreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl5, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -516,9 +528,9 @@ const questions: Question[] = [
     rotation: "Läufer 5",
     ablauf: "Annahme",
     position: "Diagonal-Angreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl5, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -527,9 +539,9 @@ const questions: Question[] = [
     rotation: "Läufer 6",
     ablauf: "Aufschlag",
     position: "Diagonal-Angreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl6, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -538,9 +550,9 @@ const questions: Question[] = [
     rotation: "Läufer 6",
     ablauf: "Annahme",
     position: "Diagonal-Angreifer",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl6, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -549,9 +561,9 @@ const questions: Question[] = [
     rotation: "Läufer 1",
     ablauf: "Aufschlag",
     position: "Libero",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl1, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -560,9 +572,9 @@ const questions: Question[] = [
     rotation: "Läufer 1",
     ablauf: "Annahme",
     position: "Libero",
-    pictures: [imgLaeufer2_3_4, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer2_3_4, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl1, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -571,9 +583,9 @@ const questions: Question[] = [
     rotation: "Läufer 2",
     ablauf: "Aufschlag",
     position: "Libero",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl2, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -582,9 +594,9 @@ const questions: Question[] = [
     rotation: "Läufer 2",
     ablauf: "Annahme",
     position: "Libero",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl2, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -593,9 +605,9 @@ const questions: Question[] = [
     rotation: "Läufer 3",
     ablauf: "Aufschlag",
     position: "Libero",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl3, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -604,9 +616,9 @@ const questions: Question[] = [
     rotation: "Läufer 3",
     ablauf: "Annahme",
     position: "Libero",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl3, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -615,9 +627,9 @@ const questions: Question[] = [
     rotation: "Läufer 4",
     ablauf: "Aufschlag",
     position: "Libero",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl4, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -626,9 +638,9 @@ const questions: Question[] = [
     rotation: "Läufer 4",
     ablauf: "Annahme",
     position: "Libero",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl4, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -637,9 +649,9 @@ const questions: Question[] = [
     rotation: "Läufer 5",
     ablauf: "Aufschlag",
     position: "Libero",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl5, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -648,9 +660,9 @@ const questions: Question[] = [
     rotation: "Läufer 5",
     ablauf: "Annahme",
     position: "Libero",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl5, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -659,9 +671,9 @@ const questions: Question[] = [
     rotation: "Läufer 6",
     ablauf: "Aufschlag",
     position: "Libero",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl6, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -670,9 +682,9 @@ const questions: Question[] = [
     rotation: "Läufer 6",
     ablauf: "Annahme",
     position: "Libero",
-    pictures: [imgLaeufer1_5_6, imgLaeufer1_AA_An],
+    pictures: [imgLaeufer1_5_6, qgrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1_AA_An, imgLaeufer1_5_6],
+      pictures: [imgl6, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   }
