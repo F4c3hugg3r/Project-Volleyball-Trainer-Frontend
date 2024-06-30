@@ -30,5 +30,8 @@ describe('QuestionAnswer', () => {
     await flushPromises()
     expect(wrapper.text()).not.toContain('Es sind noch keine Stats vorhanden!')
   })
+
+  //Alle weiteren Auswirkungen der Axios Methoden beschränken sich nur auf das Style-Attribut der Progress Bars
+  //auf welches für mich leider nicht dynamisch testbar war
 })
 

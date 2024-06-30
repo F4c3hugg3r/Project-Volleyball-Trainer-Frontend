@@ -17,6 +17,18 @@ import imgLaeufer3Aufschlag from '@/assets/Läufer3.png'
 import imgLaeufer4Aufschlag from '@/assets/Läufer4.png'
 import imgLaeufer5Aufschlag from '@/assets/Läufer5.png'
 import imgLaeufer6Aufschlag from '@/assets/Läufer6.png'
+import l1 from '@/assets/l1An.png'
+import l2 from '@/assets/l2An.png'
+import l3 from '@/assets/l3An.png'
+import l4 from '@/assets/l4An.png'
+import l5 from '@/assets/l5An.png'
+import l6 from '@/assets/l6An.png'
+import l1l from '@/assets/lmgAnLsgL1.png'
+import l2l from '@/assets/lmgAnLsgL2.png'
+import l3l from '@/assets/lmgAnLsgL3.png'
+import l4l from '@/assets/lmgAnLsgL4.png'
+import l5l from '@/assets/lmgAnLsgL5.png'
+import l6l from '@/assets/lmgAnLsgL6.png'
 
 defineProps<{title: string}>()
 
@@ -27,12 +39,13 @@ type StatId = {id:number; rating:number}
 type Stat = {id:StatId; anzahl:number}
 type ModeSelection = {position: string, ablauf: string, rotation: string}
 
+//storage
 const questions: Question[] = [
   {
     id: 1,
     rotation: "Läufer 1",
     ablauf: "Aufschlag",
-    position: "Außenangreifer",
+    position: "Außenangreifer1",
     pictures: [imgQ1Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer1Aufschlag , imgLaeufer1_5_6],
@@ -43,121 +56,121 @@ const questions: Question[] = [
     id: 2,
     rotation: "Läufer 1",
     ablauf: "Annahme",
-    position: "Außenangreifer",
-    pictures: [imgQ1Laeufer, imgQuestionGrundaufstellung],
+    position: "Außenangreifer1",
+    pictures: [l1, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      pictures: [l1l, imgLaeufer1_5_6],
+      answers: ["E", 4],
     }
   },
   {
     id: 3,
     rotation: "Läufer 2",
     ablauf: "Aufschlag",
-    position: "Außenangreifer",
+    position: "Außenangreifer1",
     pictures: [imgQ2Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer2Aufschlag, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["C", 4],
     }
   },
   {
     id: 4,
     rotation: "Läufer 2",
     ablauf: "Annahme",
-    position: "Außenangreifer",
-    pictures: [imgQ2Laeufer, imgQuestionGrundaufstellung],
+    position: "Außenangreifer1",
+    pictures: [l2, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer2Aufschlag, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      pictures: [l2l, imgLaeufer2_3_4],
+      answers: ["B", 4],
     }
   },
   {
     id: 5,
     rotation: "Läufer 3",
     ablauf: "Aufschlag",
-    position: "Außenangreifer",
+    position: "Außenangreifer1",
     pictures: [imgQ3Laeufer, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer3Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      pictures: [imgLaeufer3Aufschlag, imgLaeufer2_3_4],
+      answers: ["A", 4],
     }
   },
   {
     id: 6,
     rotation: "Läufer 3",
     ablauf: "Annahme",
-    position: "Außenangreifer",
-    pictures: [imgQ3Laeufer, imgQuestionGrundaufstellung],
+    position: "Außenangreifer1",
+    pictures: [l3, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer3Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      pictures: [l3l, imgLaeufer2_3_4],
+      answers: ["A", 4],
     }
   },
   {
     id: 7,
     rotation: "Läufer 4",
     ablauf: "Aufschlag",
-    position: "Außenangreifer",
+    position: "Außenangreifer1",
     pictures: [imgQ4Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer4Aufschlag, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["A", 6],
     }
   },
   {
     id: 8,
     rotation: "Läufer 4",
     ablauf: "Annahme",
-    position: "Außenangreifer",
-    pictures: [imgQ4Laeufer, imgQuestionGrundaufstellung],
+    position: "Außenangreifer1",
+    pictures: [l4, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer4Aufschlag, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      pictures: [l4l, imgLaeufer2_3_4],
+      answers: ["D", 6],
     }
   },
   {
     id: 9,
     rotation: "Läufer 5",
     ablauf: "Aufschlag",
-    position: "Außenangreifer",
+    position: "Außenangreifer1",
     pictures: [imgQ5Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer5Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["E", 6],
     }
   },
   {
     id: 10,
     rotation: "Läufer 5",
     ablauf: "Annahme",
-    position: "Außenangreifer",
-    pictures: [imgQ5Laeufer, imgQuestionGrundaufstellung],
+    position: "Außenangreifer1",
+    pictures: [l5, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer5Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      pictures: [l5l, imgLaeufer1_5_6],
+      answers: ["D", 6],
     }
   },
   {
     id: 11,
     rotation: "Läufer 6",
     ablauf: "Aufschlag",
-    position: "Außenangreifer",
+    position: "Außenangreifer1",
     pictures: [imgQ6Laeufer, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer6Aufschlag, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      pictures: [imgLaeufer6Aufschlag, imgLaeufer1_5_6],
+      answers: ["F", 6],
     }
   },
   {
     id: 12,
     rotation: "Läufer 6",
     ablauf: "Annahme",
-    position: "Außenangreifer",
-    pictures: [imgQ6Laeufer, imgQuestionGrundaufstellung],
+    position: "Außenangreifer1",
+    pictures: [l6, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer6Aufschlag, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      pictures: [l6l, imgLaeufer1_5_6],
+      answers: ["C", 6],
     }
   },
   {
@@ -176,9 +189,9 @@ const questions: Question[] = [
     rotation: "Läufer 1",
     ablauf: "Annahme",
     position: "Mittelblocker",
-    pictures: [imgQ1Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l1, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1Aufschlag, imgLaeufer1_5_6],
+      pictures: [l1l, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -189,7 +202,7 @@ const questions: Question[] = [
     position: "Mittelblocker",
     pictures: [imgQ2Laeufer, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer2Aufschlag, imgLaeufer1_5_6],
+      pictures: [imgLaeufer2Aufschlag, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -198,9 +211,9 @@ const questions: Question[] = [
     rotation: "Läufer 2",
     ablauf: "Annahme",
     position: "Mittelblocker",
-    pictures: [imgQ2Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l2, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer2Aufschlag, imgLaeufer1_5_6],
+      pictures: [l2l, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -211,7 +224,7 @@ const questions: Question[] = [
     position: "Mittelblocker",
     pictures: [imgQ3Laeufer, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer3Aufschlag, imgLaeufer1_5_6],
+      pictures: [imgLaeufer3Aufschlag, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -220,9 +233,9 @@ const questions: Question[] = [
     rotation: "Läufer 3",
     ablauf: "Annahme",
     position: "Mittelblocker",
-    pictures: [imgQ3Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l3, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer3Aufschlag, imgLaeufer1_5_6],
+      pictures: [l3l, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -233,7 +246,7 @@ const questions: Question[] = [
     position: "Mittelblocker",
     pictures: [imgQ4Laeufer, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer4Aufschlag, imgLaeufer1_5_6],
+      pictures: [imgLaeufer4Aufschlag, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -242,9 +255,9 @@ const questions: Question[] = [
     rotation: "Läufer 4",
     ablauf: "Annahme",
     position: "Mittelblocker",
-    pictures: [imgQ4Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l4, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer4Aufschlag, imgLaeufer1_5_6],
+      pictures: [l4l, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -264,9 +277,9 @@ const questions: Question[] = [
     rotation: "Läufer 5",
     ablauf: "Annahme",
     position: "Mittelblocker",
-    pictures: [imgQ5Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l5, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer5Aufschlag, imgLaeufer1_5_6],
+      pictures: [l5l, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -286,9 +299,9 @@ const questions: Question[] = [
     rotation: "Läufer 6",
     ablauf: "Annahme",
     position: "Mittelblocker",
-    pictures: [imgQ6Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l6, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer6Aufschlag, imgLaeufer1_5_6],
+      pictures: [l6l, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -300,7 +313,7 @@ const questions: Question[] = [
     pictures: [imgQ1Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer1Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["F", 1],
     }
   },
   {
@@ -308,10 +321,10 @@ const questions: Question[] = [
     rotation: "Läufer 1",
     ablauf: "Annahme",
     position: "Zuspieler",
-    pictures: [imgQ1Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l1, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      pictures: [l1l, imgLaeufer1_5_6],
+      answers: ["F", 1],
     }
   },
   {
@@ -321,8 +334,8 @@ const questions: Question[] = [
     position: "Zuspieler",
     pictures: [imgQ2Laeufer, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer2Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      pictures: [imgLaeufer2Aufschlag, imgLaeufer2_3_4],
+      answers: ["F", 2],
     }
   },
   {
@@ -330,10 +343,10 @@ const questions: Question[] = [
     rotation: "Läufer 2",
     ablauf: "Annahme",
     position: "Zuspieler",
-    pictures: [imgQ2Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l2, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer2Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      pictures: [l2l, imgLaeufer2_3_4],
+      answers: ["E", 2],
     }
   },
   {
@@ -343,8 +356,8 @@ const questions: Question[] = [
     position: "Zuspieler",
     pictures: [imgQ3Laeufer, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer3Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      pictures: [imgLaeufer3Aufschlag, imgLaeufer2_3_4],
+      answers: ["C", 2],
     }
   },
   {
@@ -352,10 +365,10 @@ const questions: Question[] = [
     rotation: "Läufer 3",
     ablauf: "Annahme",
     position: "Zuspieler",
-    pictures: [imgQ3Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l3, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer3Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      pictures: [l3l, imgLaeufer2_3_4],
+      answers: ["C", 2],
     }
   },
   {
@@ -365,8 +378,8 @@ const questions: Question[] = [
     position: "Zuspieler",
     pictures: [imgQ4Laeufer, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer4Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      pictures: [imgLaeufer4Aufschlag, imgLaeufer2_3_4],
+      answers: ["C", 2],
     }
   },
   {
@@ -374,10 +387,10 @@ const questions: Question[] = [
     rotation: "Läufer 4",
     ablauf: "Annahme",
     position: "Zuspieler",
-    pictures: [imgQ4Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l4, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer4Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      pictures: [l4l, imgLaeufer2_3_4],
+      answers: ["A", 2],
     }
   },
   {
@@ -388,7 +401,7 @@ const questions: Question[] = [
     pictures: [imgQ5Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer5Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["D", 1],
     }
   },
   {
@@ -396,10 +409,10 @@ const questions: Question[] = [
     rotation: "Läufer 5",
     ablauf: "Annahme",
     position: "Zuspieler",
-    pictures: [imgQ5Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l5, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer5Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      pictures: [l5l, imgLaeufer1_5_6],
+      answers: ["C", 1],
     }
   },
   {
@@ -410,7 +423,7 @@ const questions: Question[] = [
     pictures: [imgQ6Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer6Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["E", 1],
     }
   },
   {
@@ -418,10 +431,10 @@ const questions: Question[] = [
     rotation: "Läufer 6",
     ablauf: "Annahme",
     position: "Zuspieler",
-    pictures: [imgQ6Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l6, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer6Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      pictures: [l6l, imgLaeufer1_5_6],
+      answers: ["C", 1],
     }
   },
   {
@@ -440,9 +453,9 @@ const questions: Question[] = [
     rotation: "Läufer 1",
     ablauf: "Annahme",
     position: "Diagonal-Angreifer",
-    pictures: [imgQ1Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l1, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1Aufschlag, imgLaeufer1_5_6],
+      pictures: [l1l, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -453,7 +466,7 @@ const questions: Question[] = [
     position: "Diagonal-Angreifer",
     pictures: [imgQ2Laeufer, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer2Aufschlag, imgLaeufer1_5_6],
+      pictures: [imgLaeufer2Aufschlag, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -462,9 +475,9 @@ const questions: Question[] = [
     rotation: "Läufer 2",
     ablauf: "Annahme",
     position: "Diagonal-Angreifer",
-    pictures: [imgQ2Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l2, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer2Aufschlag, imgLaeufer1_5_6],
+      pictures: [l2l, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -475,7 +488,7 @@ const questions: Question[] = [
     position: "Diagonal-Angreifer",
     pictures: [imgQ3Laeufer, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer3Aufschlag, imgLaeufer1_5_6],
+      pictures: [imgLaeufer3Aufschlag, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -484,9 +497,9 @@ const questions: Question[] = [
     rotation: "Läufer 3",
     ablauf: "Annahme",
     position: "Diagonal-Angreifer",
-    pictures: [imgQ3Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l3, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer3Aufschlag, imgLaeufer1_5_6],
+      pictures: [l3l, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -497,7 +510,7 @@ const questions: Question[] = [
     position: "Diagonal-Angreifer",
     pictures: [imgQ4Laeufer, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer4Aufschlag, imgLaeufer1_5_6],
+      pictures: [imgLaeufer4Aufschlag, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -506,9 +519,9 @@ const questions: Question[] = [
     rotation: "Läufer 4",
     ablauf: "Annahme",
     position: "Diagonal-Angreifer",
-    pictures: [imgQ4Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l4, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer4Aufschlag, imgLaeufer1_5_6],
+      pictures: [l4l, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -528,9 +541,9 @@ const questions: Question[] = [
     rotation: "Läufer 5",
     ablauf: "Annahme",
     position: "Diagonal-Angreifer",
-    pictures: [imgQ5Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l5, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer5Aufschlag, imgLaeufer1_5_6],
+      pictures: [l5l, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -550,9 +563,9 @@ const questions: Question[] = [
     rotation: "Läufer 6",
     ablauf: "Annahme",
     position: "Diagonal-Angreifer",
-    pictures: [imgQ6Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l6, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer6Aufschlag, imgLaeufer1_5_6],
+      pictures: [l6l, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -572,9 +585,9 @@ const questions: Question[] = [
     rotation: "Läufer 1",
     ablauf: "Annahme",
     position: "Libero",
-    pictures: [imgQ1Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l1, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer1Aufschlag, imgLaeufer1_5_6],
+      pictures: [l1l, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -585,7 +598,7 @@ const questions: Question[] = [
     position: "Libero",
     pictures: [imgQ2Laeufer, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer2Aufschlag, imgLaeufer1_5_6],
+      pictures: [imgLaeufer2Aufschlag, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -594,9 +607,9 @@ const questions: Question[] = [
     rotation: "Läufer 2",
     ablauf: "Annahme",
     position: "Libero",
-    pictures: [imgQ2Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l2, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer2Aufschlag, imgLaeufer1_5_6],
+      pictures: [l2l, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -607,7 +620,7 @@ const questions: Question[] = [
     position: "Libero",
     pictures: [imgQ3Laeufer, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer3Aufschlag, imgLaeufer1_5_6],
+      pictures: [imgLaeufer3Aufschlag, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -616,9 +629,9 @@ const questions: Question[] = [
     rotation: "Läufer 3",
     ablauf: "Annahme",
     position: "Libero",
-    pictures: [imgQ3Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l3, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer3Aufschlag, imgLaeufer1_5_6],
+      pictures: [l3l, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -629,7 +642,7 @@ const questions: Question[] = [
     position: "Libero",
     pictures: [imgQ4Laeufer, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer4Aufschlag, imgLaeufer1_5_6],
+      pictures: [imgLaeufer4Aufschlag, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -638,9 +651,9 @@ const questions: Question[] = [
     rotation: "Läufer 4",
     ablauf: "Annahme",
     position: "Libero",
-    pictures: [imgQ4Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l4, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer4Aufschlag, imgLaeufer1_5_6],
+      pictures: [l4l, imgLaeufer2_3_4],
       answers: ["F", 4],
     }
   },
@@ -660,9 +673,9 @@ const questions: Question[] = [
     rotation: "Läufer 5",
     ablauf: "Annahme",
     position: "Libero",
-    pictures: [imgQ5Laeufer, imgQuestionGrundaufstellung],
+    pictures: [l5, imgQuestionGrundaufstellung],
     answer: {
-      pictures: [imgLaeufer5Aufschlag, imgLaeufer1_5_6],
+      pictures: [l5l, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   },
@@ -682,9 +695,141 @@ const questions: Question[] = [
     rotation: "Läufer 6",
     ablauf: "Annahme",
     position: "Libero",
+    pictures: [l6, imgQuestionGrundaufstellung],
+    answer: {
+      pictures: [l6l, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 61,
+    rotation: "Läufer 1",
+    ablauf: "Aufschlag",
+    position: "Außenangreifer2",
+    pictures: [imgQ1Laeufer, imgQuestionGrundaufstellung],
+    answer: {
+      pictures: [imgLaeufer1Aufschlag, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 62,
+    rotation: "Läufer 1",
+    ablauf: "Annahme",
+    position: "Außenangreifer2",
+    pictures: [l1, imgQuestionGrundaufstellung],
+    answer: {
+      pictures: [l1l, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 63,
+    rotation: "Läufer 2",
+    ablauf: "Aufschlag",
+    position: "Außenangreifer2",
+    pictures: [imgQ2Laeufer, imgQuestionGrundaufstellung],
+    answer: {
+      pictures: [imgLaeufer2Aufschlag, imgLaeufer2_3_4],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 64,
+    rotation: "Läufer 2",
+    ablauf: "Annahme",
+    position: "Außenangreifer2",
+    pictures: [l2, imgQuestionGrundaufstellung],
+    answer: {
+      pictures: [l2l, imgLaeufer2_3_4],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 65,
+    rotation: "Läufer 3",
+    ablauf: "Aufschlag",
+    position: "Außenangreifer2",
+    pictures: [imgQ3Laeufer, imgQuestionGrundaufstellung],
+    answer: {
+      pictures: [imgLaeufer3Aufschlag, imgLaeufer2_3_4],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 66,
+    rotation: "Läufer 3",
+    ablauf: "Annahme",
+    position: "Außenangreifer2",
+    pictures: [l3, imgQuestionGrundaufstellung],
+    answer: {
+      pictures: [l3l, imgLaeufer2_3_4],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 67,
+    rotation: "Läufer 4",
+    ablauf: "Aufschlag",
+    position: "Außenangreifer2",
+    pictures: [imgQ4Laeufer, imgQuestionGrundaufstellung],
+    answer: {
+      pictures: [imgLaeufer4Aufschlag, imgLaeufer2_3_4],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 68,
+    rotation: "Läufer 4",
+    ablauf: "Annahme",
+    position: "Außenangreifer2",
+    pictures: [l4, imgQuestionGrundaufstellung],
+    answer: {
+      pictures: [l4l, imgLaeufer2_3_4],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 69,
+    rotation: "Läufer 5",
+    ablauf: "Aufschlag",
+    position: "Außenangreifer2",
+    pictures: [imgQ5Laeufer, imgQuestionGrundaufstellung],
+    answer: {
+      pictures: [imgLaeufer5Aufschlag, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 70,
+    rotation: "Läufer 5",
+    ablauf: "Annahme",
+    position: "Außenangreifer2",
+    pictures: [l5, imgQuestionGrundaufstellung],
+    answer: {
+      pictures: [l5l, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 71,
+    rotation: "Läufer 6",
+    ablauf: "Aufschlag",
+    position: "Außenangreifer2",
     pictures: [imgQ6Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer6Aufschlag, imgLaeufer1_5_6],
+      answers: ["F", 4],
+    }
+  },
+  {
+    id: 72,
+    rotation: "Läufer 6",
+    ablauf: "Annahme",
+    position: "Außenangreifer2",
+    pictures: [l6, imgQuestionGrundaufstellung],
+    answer: {
+      pictures: [l6l, imgLaeufer1_5_6],
       answers: ["F", 4],
     }
   }
@@ -706,12 +851,12 @@ const url = import.meta.env.VITE_APP_BACKEND_BASE_URL
 //logic
 let attempts: number = 0;
 let index = ref(0)
+let phase: Ref<number> = ref(1)
 
 //selected
 let currentQuestions: Question[] = questions
 let selectedOption = ref(0)
 const selection: Ref<ModeSelection> = ref({position:"", ablauf:"", rotation:""})
-let phase: Ref<number> = ref(1)
 let selectedQuestionId: Ref<number> = ref(-1)
 let lastQuestion: Ref<boolean | undefined> = ref()
 
@@ -762,15 +907,16 @@ function endQuiz() {
 
 function defineQuestions() {
   if(selection.value.ablauf === "Alles") {
-    currentQuestions = selection.value.rotation === "gemischt" ?
+    currentQuestions = selection.value.rotation === "Gemischt" ?
       questions
         .filter(q => q.position == selection.value.position)
         .sort(() => Math.random() - 0.5)
       : questions
       .filter(q => q.position == selection.value.position)
+        .reverse()
   }
   else {
-    currentQuestions = selection.value.rotation === "gemischt" ?
+    currentQuestions = selection.value.rotation === "Gemischt" ?
       questions
         .filter(q => q.position == selection.value.position
           && q.ablauf == selection.value.ablauf)
@@ -778,6 +924,7 @@ function defineQuestions() {
       : questions
       .filter(q => q.position == selection.value.position
       && q.ablauf == selection.value.ablauf)
+        .reverse()
   }
 }
 
@@ -838,7 +985,8 @@ onMounted(() => {
     <h6>Wähle die gewünschte Position</h6>
     <select class="form-select" v-model="selection.position">
       <option disabled value="">Position</option>
-      <option>Außenangreifer</option>
+      <option>Außenangreifer1</option>
+      <option>Außenangreifer2</option>
       <option>Mittelblocker</option>
       <option>Zuspieler</option>
       <option>Diagonal-Angreifer</option>
@@ -873,14 +1021,14 @@ onMounted(() => {
   <div class="container-xl mt-5" v-if="!selectionVisible && !answered">
     <div class="card text-center shadow border-dark mx-2">
       <div class="card-header bg-dark-subtle border-secondary">
-        <h5 v-if="phase===1">- Wo stehst du? -</h5>
-        <h5 v-if="phase===2">- Wohin läufst du? -</h5>
+        <h5 v-if="phase===1">- Wer bist du? -</h5>
+        <h5 v-if="phase===2">- Auf welcher Position bist du in der Grundaufstellung? -</h5>
       </div>
       <div class="card-body">
         <h3 class="card-title">{{currentQuestions[index].rotation}} -
           {{currentQuestions[index].ablauf}}</h3>
           <div class="card-text" v-if="selectedQuestionId || selectedQuestionId === 0">
-            <img :src="pathQuestionPic" width="250" height="290" alt="picture"/>
+            <img :src="pathQuestionPic" width="300" height="290" alt="picture"/>
           </div>
         <div class="selectAnswer" v-if="phase===1">
           <select v-model="selectedOption" @change="submitVisible = true">
@@ -925,37 +1073,49 @@ onMounted(() => {
     </div> -->
   </div>
 
-  <div class="answer" v-if="answered">
-  <div class="answerPhase1">
-    <h2>Richtig! Du startest hier..</h2>
-    <div class="image">
-    <img :src="pathAnswerPics[0]" width="250" height="290" alt="picture"/>
+  <div class="container-xl mt-5" v-if="answered">
+  <div class="card text-center shadow border-dark mx-2">
+    <div class="card-header bg-dark-subtle border-secondary">
+      <h4 v-if="attempts===2">Du hast {{attempts}} Versuche gebraucht, besser geht's nicht!</h4>
+      <h4 v-if="attempts<5 && attempts>2">Du hast nur {{attempts}} Versuche gebraucht, super!</h4>
+      <h4 v-if="attempts<7 && attempts>4">Du hast {{attempts}} Versuche gebraucht, nicht schlecht!</h4>
+      <h4 v-if="attempts>6">Schade, du hast {{attempts}} Versuche gebraucht, das geht besser!</h4>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <img :src="pathAnswerPics[0]" width="300" height="290" alt="picture"/>
+        </div>
+        <div class="col">
+          <img :src="pathAnswerPics[1]" width="300" height="290" alt="picture"/>
+        </div>
       </div>
-  </div>
-  <div class="answerPhase2">
-    <h2>..und läufst dann zur {{currentQuestions[index].answer.answers[1]}}.</h2>
-    <h2>Hier die Grundaufstellung:</h2>
-    <div class="image">
-    <img :src="pathAnswerPics[1]" width="250" height="290" alt="picture"/>
+      <div class="row">
+        <div class="col">
+          <h5>Das ist dein Laufweg</h5>
+        </div>
+        <div class="col">
+          <h5>Hier die Grundaufstellung</h5>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer text-body-secondary bg-dark-subtle border-secondary">
+      <button class="btn btn-outline-success shadow d-grid gap-2 col-6 mx-auto mb-3 mt-3" v-if="!quizEnd" @click="
+    saveStat(selectedQuestionId, attempts, 1); nextQuestion()">Next Question</button>
+      <button class="btn btn-outline-success shadow d-grid gap-2 col-6 mx-auto mb-3 mt-3" v-if="quizEnd" @click="
+    saveStat(selectedQuestionId, attempts, 1); endQuiz()">End Quiz</button>
     </div>
   </div>
-    <h2 v-if="attempts===2">Du hast {{attempts}} Versuche gebraucht, besser geht's nicht!</h2>
-    <h2 v-if="attempts<5 && attempts>2">Du hast nur {{attempts}} Versuche gebraucht, super!</h2>
-    <h2 v-if="attempts<7 && attempts>4">Du hast {{attempts}} Versuche gebraucht, nicht schlecht!</h2>
-    <h2 v-if="attempts>6">Schade, du hast {{attempts}} Versuche gebraucht, das geht besser!</h2>
-    <button class="submitNextButton" v-if="!quizEnd" @click="
-    saveStat(selectedQuestionId, attempts, 1); nextQuestion()">Next Question</button>
-    <button class="submitNextButton" v-if="quizEnd" @click="
-    saveStat(selectedQuestionId, attempts, 1); endQuiz()">End Quiz</button>
   </div>
 
-  <div class="list-group">
+<!--  <div class="list-group">
     DEBUG:
     Attempts={{ attempts }}
     Phase={{phase}}
     ID={{selectedQuestionId}}
     Index={{index}}
   </div>
+-->
 
 </template>
 

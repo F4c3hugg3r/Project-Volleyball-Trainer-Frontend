@@ -8,11 +8,12 @@ type StatId = {id: number, rating:number}
 type Stat = {id:StatId; anzahl:number}
 enum Position {
   none,
-  Aussenangreifer,
+  Aussenangreifer1,
   Mittelblocker,
   Zuspieler,
   Diagonalangreifer,
-  Libero
+  Libero,
+  Aussenangreifer2
 }
 enum Ablauf {
   none,
@@ -29,14 +30,14 @@ let stats: Ref<Stat[]> = ref([])
 let currentPos = ref(Position.none)
 
 function getStatPercentageByGamemode(position:Position, ablauf?:Ablauf, rating?:number):number {
-  /* 1-12 Aussenangreifer, 13-24 Mittelblocker, 25-36 Zuspieler, 37-48 Diagonalangreifer, 49-60 Libero
+  /* 1-12 AA1, 13-24 Mittelblocker, 25-36 Zuspieler, 37-48 Diagonalangreifer, 49-60 Libero, 61-72 AA2
   %2 = 1 Aufschlag, %2 = 0 Annahme */
   if(!stats.value) return 0
   let max:number = 48
   let listFiltered: Stat[]
 
   switch(position) {
-    case Position.Aussenangreifer:
+    case Position.Aussenangreifer1:
       listFiltered = stats.value.filter(stat => stat.id.id >= 0 && stat.id.id <= 12)
       break
     case Position.Mittelblocker:
@@ -50,6 +51,9 @@ function getStatPercentageByGamemode(position:Position, ablauf?:Ablauf, rating?:
       break
     case Position.Libero:
       listFiltered = stats.value.filter(stat => stat.id.id >= 49 && stat.id.id <= 60)
+      break
+    case Position.Aussenangreifer2:
+      listFiltered = stats.value.filter(stat => stat.id.id >= 61 && stat.id.id <= 72)
       break
     default:
       console.log("no fitting position")
@@ -109,7 +113,7 @@ function deleteStatsByPosition(positionEnum: Position) {
     .catch((error) => console.log(error))
 
   switch(position) {
-    case Position.Aussenangreifer:
+    case Position.Aussenangreifer1:
       stats.value = stats.value.filter(stat => stat.id.id > 12)
       break
     case Position.Mittelblocker:
@@ -122,7 +126,10 @@ function deleteStatsByPosition(positionEnum: Position) {
       stats.value = stats.value.filter(stat => stat.id.id < 37 || stat.id.id > 48)
       break
     case Position.Libero:
-      stats.value = stats.value.filter(stat => stat.id.id < 49)
+      stats.value = stats.value.filter(stat => stat.id.id < 49 || stat.id.id > 60)
+      break
+    case Position.Aussenangreifer2:
+      stats.value = stats.value.filter(stat => stat.id.id < 61 || stat.id.id > 73)
       break
   }
 }
@@ -133,15 +140,15 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="container-fluid p-5" v-if="stats.length<1">
-      <div class="alert alert-warning mb-5 text-center" role="alert">
+    <div class="container-fluid p-5">
+      <div class="alert alert-warning mb-5 text-center" role="alert" v-if="stats.length<1">
         Es sind noch keine Stats vorhanden!
       </div>
     <div class="accordion shadow" id="accordionExample">
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            <strong>Außenangreifer</strong>
+            <strong>Außenangreifer 1</strong>
           </button>
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -151,22 +158,22 @@ onMounted(() => {
                 <h5 class="text-center">Kompletter Fortschritt</h5>
               </div>
               <div class="col">
-                <button type="button" class="btn btn-sm btn-outline-dark" @click="currentPos=Position.Aussenangreifer"
+                <button type="button" class="btn btn-sm btn-outline-dark" @click="currentPos=Position.Aussenangreifer1"
                         data-bs-toggle="modal" data-bs-target="#deleteStatsByPosition">delete stats</button>
               </div>
               </div>
             <div class="progress" role="progressbar" style="height: 25px">
-              <div class="progress-bar" id="pbAA" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Aussenangreifer)) + '%' }">{{getStatPercentageByGamemode(Position.Aussenangreifer)+"%"}}</div>
+              <div class="progress-bar" id="pbAA" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Aussenangreifer1)) + '%' }">{{ getStatPercentageByGamemode(Position.Aussenangreifer1) + "%" }}</div>
             </div>
             <p class="mt-4">Aufschlag</p>
             <div class="progress" role="progressbar" style="height: 20px">
-              <div class="progress-bar bg-info text-dark" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Aussenangreifer, Ablauf.Aufschlag))
-              + '%' }">{{getStatPercentageByGamemode(Position.Aussenangreifer, Ablauf.Aufschlag)+"%"}}</div>
+              <div class="progress-bar bg-info text-dark" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Aussenangreifer1, Ablauf.Aufschlag))
+              + '%' }">{{ getStatPercentageByGamemode(Position.Aussenangreifer1, Ablauf.Aufschlag) + "%" }}</div>
             </div>
             <p class="mt-3">Annahme</p>
             <div class="progress" role="progressbar" style="height: 20px">
-              <div class="progress-bar bg-info text-dark" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Aussenangreifer, Ablauf.Annahme))
-              + '%' }">{{getStatPercentageByGamemode(Position.Aussenangreifer, Ablauf.Annahme)+"%"}}</div>
+              <div class="progress-bar bg-info text-dark" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Aussenangreifer1, Ablauf.Annahme))
+              + '%' }">{{ getStatPercentageByGamemode(Position.Aussenangreifer1, Ablauf.Annahme) + "%" }}</div>
             </div>
             <h6 class="mt-4 text-center">Ratings</h6>
             <div class="row text-center">
@@ -177,20 +184,78 @@ onMounted(() => {
             </div>
             <div class="progress-stacked d-flex justify-content-evenly">
               <div class="progress" role="progressbar" aria-label="Segment one" aria-valuemax="25"
-                   v-bind:style="{width: (getStatPercentageByGamemode(Position.Aussenangreifer, Ablauf.Alles, 1))/4+'%'}">
-                <div class="progress-bar bg-info">{{getStatPercentageByGamemode(Position.Aussenangreifer, Ablauf.Alles, 1)}}%</div>
+                   v-bind:style="{width: (getStatPercentageByGamemode(Position.Aussenangreifer1, Ablauf.Alles, 1))/4+'%'}">
+                <div class="progress-bar bg-info">{{ getStatPercentageByGamemode(Position.Aussenangreifer1, Ablauf.Alles, 1) }}%</div>
               </div>
               <div class="progress" role="progressbar" aria-label="Segment two" aria-valuemax="25"
-                   v-bind:style="{width: (getStatPercentageByGamemode(Position.Aussenangreifer, Ablauf.Alles, 2))/4+'%'}">
-                <div class="progress-bar bg-success">{{getStatPercentageByGamemode(Position.Aussenangreifer, Ablauf.Alles, 2)}}%</div>
+                   v-bind:style="{width: (getStatPercentageByGamemode(Position.Aussenangreifer1, Ablauf.Alles, 2))/4+'%'}">
+                <div class="progress-bar bg-success">{{ getStatPercentageByGamemode(Position.Aussenangreifer1, Ablauf.Alles, 2) }}%</div>
               </div>
               <div class="progress" role="progressbar" aria-label="Segment three" aria-valuemax="25"
-                   v-bind:style="{width: (getStatPercentageByGamemode(Position.Aussenangreifer, Ablauf.Alles, 3))/4+'%'}">
-                <div class="progress-bar">{{getStatPercentageByGamemode(Position.Aussenangreifer, Ablauf.Alles, 3)}}%</div>
+                   v-bind:style="{width: (getStatPercentageByGamemode(Position.Aussenangreifer1, Ablauf.Alles, 3))/4+'%'}">
+                <div class="progress-bar">{{ getStatPercentageByGamemode(Position.Aussenangreifer1, Ablauf.Alles, 3) }}%</div>
               </div>
               <div class="progress" role="progressbar" aria-label="Segment four" aria-valuemax="25"
-                   v-bind:style="{width: (getStatPercentageByGamemode(Position.Aussenangreifer, Ablauf.Alles, 4))/4+'%'}">
-                <div class="progress-bar bg-black">{{getStatPercentageByGamemode(Position.Aussenangreifer, Ablauf.Alles, 4)}}%</div>
+                   v-bind:style="{width: (getStatPercentageByGamemode(Position.Aussenangreifer1, Ablauf.Alles, 4))/4+'%'}">
+                <div class="progress-bar bg-black">{{ getStatPercentageByGamemode(Position.Aussenangreifer1, Ablauf.Alles, 4) }}%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+            <strong>Außenangreifer 2</strong>
+          </button>
+        </h2>
+        <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="row mb-2">
+              <div class="col-10">
+                <h5 class="text-center">Kompletter Fortschritt</h5>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-sm btn-outline-dark" @click="currentPos=Position.Aussenangreifer2"
+                        data-bs-toggle="modal" data-bs-target="#deleteStatsByPosition">delete stats</button>
+              </div>
+            </div>
+            <div class="progress" role="progressbar" style="height: 25px">
+              <div class="progress-bar" id="pbAA" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Aussenangreifer2)) + '%' }">{{ getStatPercentageByGamemode(Position.Aussenangreifer2) + "%" }}</div>
+            </div>
+            <p class="mt-4">Aufschlag</p>
+            <div class="progress" role="progressbar" style="height: 20px">
+              <div class="progress-bar bg-info text-dark" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Aussenangreifer2, Ablauf.Aufschlag))
+              + '%' }">{{ getStatPercentageByGamemode(Position.Aussenangreifer2, Ablauf.Aufschlag) + "%" }}</div>
+            </div>
+            <p class="mt-3">Annahme</p>
+            <div class="progress" role="progressbar" style="height: 20px">
+              <div class="progress-bar bg-info text-dark" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Aussenangreifer2, Ablauf.Annahme))
+              + '%' }">{{ getStatPercentageByGamemode(Position.Aussenangreifer2, Ablauf.Annahme) + "%" }}</div>
+            </div>
+            <h6 class="mt-4 text-center">Ratings</h6>
+            <div class="row text-center">
+              <div class="col">Beginner</div>
+              <div class="col">Amateur</div>
+              <div class="col">Pro</div>
+              <div class="col">Perfect</div>
+            </div>
+            <div class="progress-stacked d-flex justify-content-evenly">
+              <div class="progress" role="progressbar" aria-label="Segment one" aria-valuemax="25"
+                   v-bind:style="{width: (getStatPercentageByGamemode(Position.Aussenangreifer2, Ablauf.Alles, 1))/4+'%'}">
+                <div class="progress-bar bg-info">{{ getStatPercentageByGamemode(Position.Aussenangreifer2, Ablauf.Alles, 1) }}%</div>
+              </div>
+              <div class="progress" role="progressbar" aria-label="Segment two" aria-valuemax="25"
+                   v-bind:style="{width: (getStatPercentageByGamemode(Position.Aussenangreifer2, Ablauf.Alles, 2))/4+'%'}">
+                <div class="progress-bar bg-success">{{ getStatPercentageByGamemode(Position.Aussenangreifer2, Ablauf.Alles, 2) }}%</div>
+              </div>
+              <div class="progress" role="progressbar" aria-label="Segment three" aria-valuemax="25"
+                   v-bind:style="{width: (getStatPercentageByGamemode(Position.Aussenangreifer2, Ablauf.Alles, 3))/4+'%'}">
+                <div class="progress-bar">{{ getStatPercentageByGamemode(Position.Aussenangreifer2, Ablauf.Alles, 3) }}%</div>
+              </div>
+              <div class="progress" role="progressbar" aria-label="Segment four" aria-valuemax="25"
+                   v-bind:style="{width: (getStatPercentageByGamemode(Position.Aussenangreifer2, Ablauf.Alles, 4))/4+'%'}">
+                <div class="progress-bar bg-black">{{ getStatPercentageByGamemode(Position.Aussenangreifer2, Ablauf.Alles, 4) }}%</div>
               </div>
             </div>
           </div>
