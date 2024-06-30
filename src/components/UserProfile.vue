@@ -2,10 +2,12 @@
 
 import axios from 'axios'
 import { onMounted, ref, type Ref } from 'vue'
+import { B } from 'vitest/dist/reporters-yx5ZTtEV'
 
 //datatypes
 type StatId = {id: number, rating:number}
 type Stat = {id:StatId; anzahl:number}
+type Badge = {anzahl:number; rating:number}
 enum Position {
   none,
   Aussenangreifer1,
@@ -29,11 +31,7 @@ const url = import.meta.env.VITE_APP_BACKEND_BASE_URL
 let stats: Ref<Stat[]> = ref([])
 let currentPos = ref(Position.none)
 
-function getStatPercentageByGamemode(position:Position, ablauf?:Ablauf, rating?:number):number {
-  /* 1-12 AA1, 13-24 Mittelblocker, 25-36 Zuspieler, 37-48 Diagonalangreifer, 49-60 Libero, 61-72 AA2
-  %2 = 1 Aufschlag, %2 = 0 Annahme */
-  if(!stats.value) return 0
-  let max:number = 48
+function filterStatsByPosition(position:Position): Stat[] {
   let listFiltered: Stat[]
 
   switch(position) {
@@ -59,6 +57,39 @@ function getStatPercentageByGamemode(position:Position, ablauf?:Ablauf, rating?:
       console.log("no fitting position")
       listFiltered = []
   }
+
+  return listFiltered
+}
+
+function getColorFromBadge(badge:Badge) {
+  let color
+  switch (badge) {
+    case 1:
+      color = "info"
+      break
+    case 2:
+      color = "success"
+      break
+    case 3:
+      color = "primary"
+      break
+    case 4:
+      color = "dark"
+      break
+  }
+  return color
+}
+
+function getAnzahlFromBadge(badge:Badge) {
+  return badge.anzahl
+}
+
+function getStatPercentageByGamemode(position:Position, ablauf?:Ablauf, rating?:number):number {
+  /* 1-12 AA1, 13-24 Mittelblocker, 25-36 Zuspieler, 37-48 Diagonalangreifer, 49-60 Libero, 61-72 AA2
+  %2 = 1 Aufschlag, %2 = 0 Annahme */
+  if(!stats.value) return 0
+  let max:number = 48
+  let listFiltered = filterStatsByPosition(position)
 
   if(ablauf) {
     switch(ablauf) {
@@ -87,9 +118,38 @@ function getStatPercentageByGamemode(position:Position, ablauf?:Ablauf, rating?:
   return Math.round(listFiltered.length/max*100)
 }
 
-function anzahlByQuestionId(questionId: number):number {
-  const stat = stats.value.find(stat => stat.id.id === questionId);
-  return stat ? stat.anzahl : 0;
+function checkAnzahlByPosition(position:Position):badage {
+  let rating = null
+  let anzahl = 0
+
+  for(let i = 4; i>0; i--) {
+    if(getStatPercentageByGamemode(position, Ablauf.Alles, i) === 100) {
+      rating = i
+      anzahl = 1
+      break
+    }
+  }
+  if(!rating) return 0
+
+  let listFiltered = filterStatsByPosition(position)
+  listFiltered = listFiltered.filter(stat => stat.id.rating === rating)
+  const highestAnzahl = stats.value.reduce((maxStat, currentStat) => currentStat.anzahl > maxStat.anzahl ? currentStat : maxStat, stats.value[0]);
+  let bool:boolean = false
+
+  for(let i = 1; i<=highestAnzahl; i++) {
+    for(stat in listFiltered) {
+      if(stat.anzahl<i) {
+        bool = true
+        break
+      }
+    }
+    if(bool) {
+      anzahl = i-1
+      break
+    }
+    else anzahl = i
+  }
+  return {anzahl: anzahl, rating: rating}
 }
 
 function requestStats() {
@@ -154,10 +214,13 @@ onMounted(() => {
         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <div class="row mb-2">
-              <div class="col-10">
-                <h5 class="text-center">Kompletter Fortschritt</h5>
+              <div class="col">
+                <span class="badge text-bg-{{getColorFromBadge(checkAnzahlByPosition(Position.Aussenangreifer1))}}" v-if="getStatPercentageByGamemode(Position.Aussenangreifer1)===100">{{getAnzahlFromBadge}}</span>
               </div>
               <div class="col">
+                <h5>Kompletter Fortschritt</h5>
+              </div>
+              <div class="col text-end">
                 <button type="button" class="btn btn-sm btn-outline-dark" @click="currentPos=Position.Aussenangreifer1"
                         data-bs-toggle="modal" data-bs-target="#deleteStatsByPosition">delete stats</button>
               </div>
@@ -212,10 +275,13 @@ onMounted(() => {
         <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <div class="row mb-2">
-              <div class="col-10">
-                <h5 class="text-center">Kompletter Fortschritt</h5>
+              <div class="col">
+                <span class="badge text-bg-{{getColorFromBadge(checkAnzahlByPosition(Position.Aussenangreifer2))}}" v-if="getStatPercentageByGamemode(Position.Aussenangreifer2)===100">{{getAnzahlFromBadge}}</span>
               </div>
               <div class="col">
+                <h5>Kompletter Fortschritt</h5>
+              </div>
+              <div class="col text-end">
                 <button type="button" class="btn btn-sm btn-outline-dark" @click="currentPos=Position.Aussenangreifer2"
                         data-bs-toggle="modal" data-bs-target="#deleteStatsByPosition">delete stats</button>
               </div>
@@ -270,10 +336,13 @@ onMounted(() => {
         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <div class="row mb-2">
-              <div class="col-10">
-                <h5 class="text-center">Kompletter Fortschritt</h5>
+              <div class="col">
+                <span class="badge text-bg-{{getColorFromBadge(checkAnzahlByPosition(Position.Mittelblocker))}}" v-if="getStatPercentageByGamemode(Position.Mittelblocker)===100">{{getAnzahlFromBadge}}</span>
               </div>
               <div class="col">
+                <h5>Kompletter Fortschritt</h5>
+              </div>
+              <div class="col text-end">
                 <button type="button" class="btn btn-sm btn-outline-dark" @click="currentPos=Position.Mittelblocker"
                         data-bs-toggle="modal" data-bs-target="#deleteStatsByPosition">delete stats</button>
               </div>
@@ -328,10 +397,13 @@ onMounted(() => {
         <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <div class="row mb-2">
-              <div class="col-10">
-                <h5 class="text-center">Kompletter Fortschritt</h5>
+              <div class="col">
+                <span class="badge text-bg-{{getColorFromBadge(checkAnzahlByPosition(Position.Zuspieler))}}" v-if="getStatPercentageByGamemode(Position.Zuspieler)===100">{{getAnzahlFromBadge}}</span>
               </div>
               <div class="col">
+                <h5>Kompletter Fortschritt</h5>
+              </div>
+              <div class="col text-end">
                 <button type="button" class="btn btn-sm btn-outline-dark" @click="currentPos=Position.Zuspieler"
                         data-bs-toggle="modal" data-bs-target="#deleteStatsByPosition">delete stats</button>
               </div>
@@ -386,10 +458,13 @@ onMounted(() => {
         <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <div class="row mb-2">
-              <div class="col-10">
-                <h5 class="text-center">Kompletter Fortschritt</h5>
+              <div class="col">
+                <span class="badge text-bg-{{getColorFromBadge(checkAnzahlByPosition(Position.Diagonalangreifer))}}" v-if="getStatPercentageByGamemode(Position.Diagonalangreifer)===100">{{getAnzahlFromBadge}}</span>
               </div>
               <div class="col">
+                <h5>Kompletter Fortschritt</h5>
+              </div>
+              <div class="col text-end">
                 <button type="button" class="btn btn-sm btn-outline-dark" @click="currentPos=Position.Diagonalangreifer"
                         data-bs-toggle="modal" data-bs-target="#deleteStatsByPosition">delete stats</button>
               </div>
@@ -444,10 +519,13 @@ onMounted(() => {
         <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <div class="row mb-2">
-              <div class="col-10">
-                <h5 class="text-center">Kompletter Fortschritt</h5>
+              <div class="col">
+                <span class="badge text-bg-{{getColorFromBadge(checkAnzahlByPosition(Position.Libero))}}" v-if="getStatPercentageByGamemode(Position.Libero)===100">{{getAnzahlFromBadge}}</span>
               </div>
               <div class="col">
+                <h5>Kompletter Fortschritt</h5>
+              </div>
+              <div class="col text-end">
                 <button type="button" class="btn btn-sm btn-outline-dark" @click="currentPos=Position.Libero"
                         data-bs-toggle="modal" data-bs-target="#deleteStatsByPosition">delete stats</button>
               </div>
@@ -531,7 +609,7 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <span>{{stats}}</span>
+      <!--<span>{{stats}}</span>-->
     </div>
 </template>
 
