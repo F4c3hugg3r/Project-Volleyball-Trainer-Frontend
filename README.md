@@ -1,45 +1,38 @@
-# .
+# Volleyballtrainer-Frontend
+Dies ist das **Frontend** für das Projekt des Moduls Webtechnologien von *Lennard Dubhorn*
 
-This template should help get you started developing with Vue 3 in Vite.
+> URL: https://volleyball-trainer-frontend.onrender.com
 
-## Recommended IDE Setup
+## Funktionsweise der Anwendung
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Die Anwendung ist im Kern eine **Quiz App**, mit welcher man das 5:1 Volleyball Läufersystem üben und festigen kann. Das System ist mit Abstand das gängigste im professionelleren Bereich des Sportes, muss aber geübt werden, um die Abläufe möglichst reibungslos zu verinnerlichen und abrufen zu können.
 
-## Type Support for `.vue` Imports in TS
+Auf dem **Begrüßungs/Home-Screen** oder in der **Navbar** kann man zum Quiz oder zum Profil navigieren. In der Quiz Ansicht kann man zwischen unterschiedlichen Spielmodi wählen.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
 
-## Customize configuration
+### Quiz
+> **Positionen**  -  wähle zwischen den Positionen, die im System festgelegt sind, um je nach Stärken des Spielers die Aufgaben gezielt zuzuteilen.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+> **Ablauf**  -  du kannst die Fragen unterteilen, wenn du lieber nur die Annahme- oder Aufschlagssituation üben möchtest
 
-## Project Setup
+> **Rotation**  -  wähle den Reihenfolge/Rotation, in dem die Fragen gestellt werden sollen
 
-```sh
-npm install
-```
 
-### Compile and Hot-Reload for Development
+Es werden anschließend jeweils eine Frage zur Aktuellen Position in der Rotation (Läufer 6-1) und eine zur entsprechenden Grundaufstellung gestellt. Bei der kleinstmöglichen Einschränkung sind es insgesamt 12 Fragen (6x Aufschlag + 6x Annahme) a jeweils 2 Unterfragen, also 24 Fragen pro Fragenblock. Diese werden anschließend ausgewertet und nach Anzahl der versuche bewertet.
 
-```sh
-npm run dev
-```
 
-### Type-Check, Compile and Minify for Production
+### Profile
+Im **Profile** gibt es für jede Position eine Ansicht mit Statistiken zur erfolgreichen Beantwortung unterteilt nach:
 
-```sh
-npm run build
-```
+* Alle Fragen der Position
+* Alle Fragen der Position beschränkt auf die Annahme
+* Alle Fragen der Position beschränkt auf den Aufschlag
+* Alle Fragen der Position aufgeteilt nach Rankings
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+Das **Rating** einer Frage (bestehend aus 2 Unterfragen) ist so aufgebaut
+* Beginner > 6 Versuche
+* Amateur > 4 Versuche
+* Pro > 2
+* Perfect 2 Versuche
 
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Werden Alle Fragen einer Position in einem bestimmten Rating beantwortet erscheint entsprechend des Ratings ein Symbol an der Statistik. Sollten die selben Fragen mehrmals vollständig mit gleichem Rating abgeschlossen sein, wird dies durch eine Zahl am Symbol gekennzeichnet.
