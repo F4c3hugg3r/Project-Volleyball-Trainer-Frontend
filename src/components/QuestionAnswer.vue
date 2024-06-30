@@ -181,7 +181,7 @@ const questions: Question[] = [
     pictures: [imgQ1Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer1Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["D", 3],
     }
   },
   {
@@ -192,7 +192,7 @@ const questions: Question[] = [
     pictures: [l1, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l1l, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["C", 3],
     }
   },
   {
@@ -203,7 +203,7 @@ const questions: Question[] = [
     pictures: [imgQ2Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer2Aufschlag, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["B", 3],
     }
   },
   {
@@ -214,7 +214,7 @@ const questions: Question[] = [
     pictures: [l2, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l2l, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["A", 3],
     }
   },
   {
@@ -225,7 +225,7 @@ const questions: Question[] = [
     pictures: [imgQ3Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer3Aufschlag, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["B", 5],
     }
   },
   {
@@ -236,7 +236,7 @@ const questions: Question[] = [
     pictures: [l3, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l3l, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["B", 5],
     }
   },
   {
@@ -247,7 +247,7 @@ const questions: Question[] = [
     pictures: [imgQ4Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer4Aufschlag, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["B", 5],
     }
   },
   {
@@ -258,7 +258,7 @@ const questions: Question[] = [
     pictures: [l4, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l4l, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["D", 5],
     }
   },
   {
@@ -269,7 +269,7 @@ const questions: Question[] = [
     pictures: [imgQ5Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer5Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["A", 5],
     }
   },
   {
@@ -280,7 +280,7 @@ const questions: Question[] = [
     pictures: [l5, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l5l, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["E", 5],
     }
   },
   {
@@ -291,7 +291,7 @@ const questions: Question[] = [
     pictures: [imgQ6Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer6Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["D", 3],
     }
   },
   {
@@ -302,7 +302,7 @@ const questions: Question[] = [
     pictures: [l6, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l6l, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["E", 3],
     }
   },
   {
@@ -445,7 +445,7 @@ const questions: Question[] = [
     pictures: [imgQ1Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer1Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["C", 2],
     }
   },
   {
@@ -456,7 +456,7 @@ const questions: Question[] = [
     pictures: [l1, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l1l, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["A", 2],
     }
   },
   {
@@ -467,7 +467,7 @@ const questions: Question[] = [
     pictures: [imgQ2Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer2Aufschlag, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["D", 1],
     }
   },
   {
@@ -478,7 +478,7 @@ const questions: Question[] = [
     pictures: [l2, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l2l, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["C", 1],
     }
   },
   {
@@ -489,7 +489,7 @@ const questions: Question[] = [
     pictures: [imgQ3Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer3Aufschlag, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["E", 1],
     }
   },
   {
@@ -500,7 +500,7 @@ const questions: Question[] = [
     pictures: [l3, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l3l, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["E", 1],
     }
   },
   {
@@ -511,7 +511,7 @@ const questions: Question[] = [
     pictures: [imgQ4Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer4Aufschlag, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["F", 1],
     }
   },
   {
@@ -522,7 +522,7 @@ const questions: Question[] = [
     pictures: [l4, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l4l, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["F", 1],
     }
   },
   {
@@ -533,7 +533,7 @@ const questions: Question[] = [
     pictures: [imgQ5Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer5Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["F", 2],
     }
   },
   {
@@ -544,7 +544,7 @@ const questions: Question[] = [
     pictures: [l5, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l5l, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["F", 2],
     }
   },
   {
@@ -555,7 +555,7 @@ const questions: Question[] = [
     pictures: [imgQ6Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer6Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["C", 2],
     }
   },
   {
@@ -566,7 +566,7 @@ const questions: Question[] = [
     pictures: [l6, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l6l, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["D", 2],
     }
   },
   {
@@ -709,7 +709,7 @@ const questions: Question[] = [
     pictures: [imgQ1Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer1Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["A", 6],
     }
   },
   {
@@ -720,7 +720,7 @@ const questions: Question[] = [
     pictures: [l1, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l1l, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["B", 6],
     }
   },
   {
@@ -731,7 +731,7 @@ const questions: Question[] = [
     pictures: [imgQ2Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer2Aufschlag, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["E", 6],
     }
   },
   {
@@ -742,7 +742,7 @@ const questions: Question[] = [
     pictures: [l2, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l2l, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["D", 6],
     }
   },
   {
@@ -753,7 +753,7 @@ const questions: Question[] = [
     pictures: [imgQ3Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer3Aufschlag, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["F", 6],
     }
   },
   {
@@ -764,7 +764,7 @@ const questions: Question[] = [
     pictures: [l3, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l3l, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["F", 6],
     }
   },
   {
@@ -775,7 +775,7 @@ const questions: Question[] = [
     pictures: [imgQ4Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer4Aufschlag, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["E", 2],
     }
   },
   {
@@ -786,7 +786,7 @@ const questions: Question[] = [
     pictures: [l4, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l4l, imgLaeufer2_3_4],
-      answers: ["F", 4],
+      answers: ["C", 2],
     }
   },
   {
@@ -797,7 +797,7 @@ const questions: Question[] = [
     pictures: [imgQ5Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer5Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["C", 2],
     }
   },
   {
@@ -808,7 +808,7 @@ const questions: Question[] = [
     pictures: [l5, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l5l, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["B", 2],
     }
   },
   {
@@ -819,7 +819,7 @@ const questions: Question[] = [
     pictures: [imgQ6Laeufer, imgQuestionGrundaufstellung],
     answer: {
       pictures: [imgLaeufer6Aufschlag, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["A", 2],
     }
   },
   {
@@ -830,7 +830,7 @@ const questions: Question[] = [
     pictures: [l6, imgQuestionGrundaufstellung],
     answer: {
       pictures: [l6l, imgLaeufer1_5_6],
-      answers: ["F", 4],
+      answers: ["A", 2],
     }
   }
 
