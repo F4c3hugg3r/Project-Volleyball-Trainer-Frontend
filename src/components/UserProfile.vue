@@ -133,7 +133,10 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="container-fluid p-5">
+    <div class="container-fluid p-5" v-if="stats.length<1">
+      <div class="alert alert-warning mb-5 text-center" role="alert">
+        Es sind noch keine Stats vorhanden!
+      </div>
     <div class="accordion shadow" id="accordionExample">
       <div class="accordion-item">
         <h2 class="accordion-header">
@@ -153,7 +156,7 @@ onMounted(() => {
               </div>
               </div>
             <div class="progress" role="progressbar" style="height: 25px">
-              <div class="progress-bar" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Aussenangreifer)) + '%' }">{{getStatPercentageByGamemode(Position.Aussenangreifer)+"%"}}</div>
+              <div class="progress-bar" id="pbAA" v-bind:style="{ width: (getStatPercentageByGamemode(Position.Aussenangreifer)) + '%' }">{{getStatPercentageByGamemode(Position.Aussenangreifer)+"%"}}</div>
             </div>
             <p class="mt-4">Aufschlag</p>
             <div class="progress" role="progressbar" style="height: 20px">
