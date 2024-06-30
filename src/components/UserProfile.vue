@@ -136,7 +136,7 @@ function checkAnzahlByPosition(position:Position):Badge {
   let bool:boolean = false
 
   for(let i = 1; i<=highestAnzahl; i++) {
-    for(stat in listFiltered) {
+    for(let stat of listFiltered) {
       if(stat.anzahl<i) {
         bool = true
         break
