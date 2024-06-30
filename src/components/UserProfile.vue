@@ -2,7 +2,6 @@
 
 import axios from 'axios'
 import { onMounted, ref, type Ref } from 'vue'
-import { B } from 'vitest/dist/reporters-yx5ZTtEV'
 
 //datatypes
 type StatId = {id: number, rating:number}
@@ -63,7 +62,7 @@ function filterStatsByPosition(position:Position): Stat[] {
 
 function getColorFromBadge(badge:Badge) {
   let color
-  switch (badge) {
+  switch (badge.rating) {
     case 1:
       color = "info"
       break
@@ -118,7 +117,7 @@ function getStatPercentageByGamemode(position:Position, ablauf?:Ablauf, rating?:
   return Math.round(listFiltered.length/max*100)
 }
 
-function checkAnzahlByPosition(position:Position):badage {
+function checkAnzahlByPosition(position:Position):Badge {
   let rating = null
   let anzahl = 0
 
@@ -129,11 +128,11 @@ function checkAnzahlByPosition(position:Position):badage {
       break
     }
   }
-  if(!rating) return 0
+  if(!rating) return {anzahl: 0, rating:0}
 
   let listFiltered = filterStatsByPosition(position)
   listFiltered = listFiltered.filter(stat => stat.id.rating === rating)
-  const highestAnzahl = stats.value.reduce((maxStat, currentStat) => currentStat.anzahl > maxStat.anzahl ? currentStat : maxStat, stats.value[0]);
+  const highestAnzahl = stats.value.reduce((maxStat, currentStat) => currentStat.anzahl > maxStat.anzahl ? currentStat : maxStat, stats.value[0]).anzahl;
   let bool:boolean = false
 
   for(let i = 1; i<=highestAnzahl; i++) {
