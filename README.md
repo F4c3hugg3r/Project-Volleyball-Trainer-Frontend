@@ -1,7 +1,11 @@
 # Volleyballtrainer-Frontend
-Dies ist das **Frontend** für das Projekt des Moduls Webtechnologien von *Lennard Dubhorn*
+Dies ist das **Frontend** für das Projekt Voleyball-Trainer-App von *Lennard Dubhorn*
 
 > URL: https://volleyball-trainer-frontend.onrender.com
+!currently not online!
+
+## Technologien
+Dieses Frontend wurde mithilfe von ```Vue.js``` und ```Bootstrap``` erstellt. Es kommuniziert mit folgendem [Backend](https://github.com/F4c3hugg3r/Project-Volleyball-Trainer-Backend).
 
 ## Funktionsweise der Anwendung
 
@@ -35,4 +39,4 @@ Das **Rating** einer Frage (bestehend aus 2 Unterfragen) ist so aufgebaut
 * Pro > 2
 * Perfect 2 Versuche
 
-Werden Alle Fragen einer Position in einem bestimmten Rating beantwortet erscheint entsprechend des Ratings ein Symbol an der Statistik. Sollten die selben Fragen mehrmals vollständig mit gleichem Rating abgeschlossen sein, wird dies durch eine Zahl am Symbol gekennzeichnet.
+### Viel Spaß beim Lernen! :)
